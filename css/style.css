@@ -1,0 +1,426 @@
+@font-face {
+    font-family: 'HelveticaNeue-Thin';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/HelveticaNeue-Thin.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HelveticaNeueUltraLight';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/HelveticaNeueUltraLight.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HelveticaNeueLight';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/HelveticaNeueLight.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HelveticaNeueMedium';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/HelveticaNeueMedium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HelveticaNeueBold';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/HelveticaNeueBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HelveticaNeue-Black';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/HelveticaNeue-Black.woff') format('woff');
+}
+
+
+body {
+    font-family: 'HelveticaNeueUltraLight';
+    margin: 0;
+
+}
+
+a {
+    color: #101010;
+    text-decoration: none;
+}
+
+.header {
+    display: flex;
+    margin: 1.5%;
+}
+
+.nav {
+    justify-content: space-between;
+}
+
+.brand-title {
+    margin: 0;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: 'HelveticaNeueMedium';
+    letter-spacing: 2px;
+}
+.brand-title:after {
+    content: "Antøine Cørniere";
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+
+.title__bar {
+    margin-left: 15px;
+    width: 80px;
+    height: 1px;
+    background-color: #101010;
+}
+
+.navbar {
+    display: flex;
+    margin-right: 3%;
+    align-items: center;
+
+}
+
+.nav__link {
+    font-size: 18px;
+    font-family: 'HelveticaNeueMedium';
+    padding-right: 5px;
+    margin-right: 4%;
+    margin-left: 4%;
+}
+
+
+.content__menu {
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    align-items: center;
+
+}
+
+
+.menu__div {
+    margin: 2%;
+    padding: 20px;
+}
+
+.menu__link {
+    width: fit-content;
+    position: relative;
+    z-index: 10;
+    font-size: 28px;
+    font-family: 'HelveticaNeueMedium';
+    padding-right: 5px;
+}
+
+
+.image {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        top: 45%;
+
+
+    }
+
+    to {
+        opacity: 1;
+        top: 50%;
+    }
+}
+
+.img_hover {
+    width: 600px;
+    height: 430px;
+    object-fit: cover;
+}
+
+
+.strikethrough {
+    position: relative;
+    display: block;
+}
+
+.strikethrough:before, .strikethrough:after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    top: 54%;
+    background: #101010;
+}
+
+.strikethrough:before {
+    left: -2.5px;
+}
+
+.strikethrough:after {
+    right: 2.5px;
+    background: #101010;
+    transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.strikethrough:hover:before {
+    background: #101010;
+    width: 100%;
+    transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.strikethrough:hover:after {
+    background: transparent;
+    width: 100%;
+
+}
+
+
+#contact {
+    display: flex;
+    font-size: 20px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+#email {
+    position: relative;
+    bottom: 1px;
+    margin-left: 12px;
+    padding-right: 5px;
+    font-family: 'HelveticaNeueMedium';
+}
+
+#social__links {
+    display: flex;
+    justify-content: center;
+}
+
+.s__links {
+    margin: 4%;
+    padding-right: 5px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+#info__content {
+    width: 70%;
+    height: 80vh;
+    margin: auto;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#info__block {
+    width: 70%;
+}
+
+.info__title {
+    letter-spacing: 2px;
+    font-size: 28px;
+    margin-bottom: 8%;
+    font-family: 'HelveticaNeueBold';
+
+}
+
+.info__title > span {
+    font-family: 'HelveticaNeueUltraLight';
+}
+
+.info__txt {
+    font-weight: 300;
+    width: 80%;
+    font-size: 20px;
+    line-height: 1.5
+}
+
+.photo-copy {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.p-copy-link {
+
+    margin-left: 5px;
+    color: #101010;
+}
+
+#info__block__img {
+    width: 40%;
+}
+
+.info__img {
+    width: 100%;
+    box-shadow: 2px 2px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    right: 2%;
+}
+
+.footer > p {
+    font-size: 14px;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.films__content {
+    margin-top: 8%;
+}
+
+.video__block {
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.films__title {
+    font-weight:300;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 2%;
+}
+
+.youtube__iframe {
+    width: 90vh;
+    height: 50vh;
+}
+
+.vimeo__iframe {
+    width: 90vh;
+    height: 50vh;
+}
+
+.progress {
+    position: fixed;
+    top: 50%;
+    right: -8%;
+    z-index: 1;
+    border-radius: 100px;
+    transform: rotate(90deg) translate(0, -50%);
+    width: 25%;
+    background: rgba(191, 191, 191, 0.89);
+}
+
+
+.progress-container {
+    width: 100%;
+    height: 2px;
+    border-radius: 100px;
+    background: rgba(191, 191, 191, 0.89);
+}
+
+.progress-bar {
+    height: 2px;
+    background: #101010;
+    border-radius: 100px;
+    width: 0%;
+}
+
+.inner-border {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.inner-border::-webkit-scrollbar {
+    display: none;
+}
+
+.photo__title {
+    font-family: 'HelveticaNeueBold';
+}
+.menu__photo {
+    width: 30%;
+    margin: 3%;
+}
+.link__photo {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.photo__content {
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+
+
+.photo__block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img_photo_Land {
+    width: 50%;
+    margin: 1.2%;
+}
+
+.img_photo {
+    width: 35%;
+    margin: 1.2%;
+}
+
+.img__work {
+    width: 100%;
+    object-fit: cover;
+}
+
+.back__link {
+    position: fixed;
+    bottom: 0;
+    left: 2%;
+}
+
+#back__btn {
+    font-weight: 500;
+    margin-bottom: 14px;
+    padding-right: 5px;
+    font-family: 'HelveticaNeueMedium';
+
+}
+
+
+
+.error__content {
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+.error__title {
+    font-family: 'HelveticaNeueMedium';
+    font-size: 45px;
+}
+
+.error__link {
+    font-size: 25px;
+    color: #101010;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    font-weight: 300;
+}

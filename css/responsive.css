@@ -1,0 +1,309 @@
+@media screen and (min-width: 320px) and (max-width: 568px) {
+    .brand {
+        margin: 2%;
+        margin-left: 3%;
+    }
+
+    .brand-title:after {
+        content: "AC";
+    }
+
+    .title__bar {
+        margin-left: 5px;
+        width: 30px;
+    }
+
+    .navbar {
+        margin-right: 10%;
+    }
+
+    .nav__link {
+        font-size: 15px;
+        margin-right: 0;
+    }
+
+    .content__menu {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 10%;
+    }
+
+    .resp {
+        align-items: center;
+        justify-content: center;
+        margin-left: 0;
+
+    }
+
+    .img_hover {
+        display: none;
+    }
+
+    .menu__photo {
+        width: 80%;
+        margin: 3%;
+    }
+
+    .photo__title {
+        font-size: 18px;
+    }
+
+    .link__photo {
+        height: 140px;
+    }
+
+    #info__content {
+        flex-wrap: wrap;
+        height: auto;
+        width: 90%;
+        padding-bottom: 50px;
+    }
+
+    #info__block {
+        width: 95%;
+    }
+
+    .info__txt {
+        width: 90%;
+        font-size: 16px;
+    }
+
+
+    .info__title {
+
+        font-size: 16px;
+        margin-bottom: 8%;
+    }
+
+    #info__block__img {
+        width: 90%;
+    }
+
+    .photo-copy {
+        font-size: 12px;
+    }
+
+    .footer {
+        display: none;
+    }
+
+    .films__title {
+        font-size: 16px;
+    }
+
+    .vimeo__iframe {
+        width: 50vh;
+        height: 30vh;
+        margin-bottom: 20px;
+    }
+
+    .youtube__iframe {
+        margin-top: 10px;
+        width: 50vh;
+        height: 25vh;
+        margin-bottom: 20px;
+    }
+
+    .progress {
+        display: none;
+    }
+
+    .photo__content {
+        width: 95%;
+    }
+
+    .photo__block {
+        flex-direction: column;
+    }
+
+    .img_photo_Land {
+        width: 90%;
+    }
+    .img_photo {
+        width: 90%;
+    }
+
+    .back__link {
+        position: absolute;
+        bottom: unset;
+        left: 8%;
+    }
+
+    #contact {
+        flex-wrap: wrap;
+        margin-left: 10%;
+        font-size: 18px;
+    }
+
+    #email {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .s__links {
+        font-size: 16px;
+    }
+
+    .error__title {
+        font-size: 26px;
+    }
+
+    .error__link {
+        font-size: 18px;
+        color: #101010;
+        text-align: center;
+        width: fit-content;
+        margin: auto;
+    }
+}
+@media screen and (min-width: 375px) and (max-width: 812px) {
+    .brand {
+        margin: 2%;
+        margin-left: 3%;
+    }
+
+    .brand-title:after {
+        content: "AC";
+    }
+
+    .title__bar {
+        margin-left: 15px;
+        width: 40px;
+    }
+
+    .navbar {
+        margin-right: 10%;
+    }
+
+    .nav__link {
+        font-size: 16px;
+        margin-right: 0;
+    }
+
+    .content__menu {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 10%;
+    }
+
+    .resp {
+        align-items: center;
+        justify-content: center;
+        margin-left: 0;
+
+    }
+
+    .img_hover {
+        display: none;
+    }
+
+    .menu__photo {
+        width: 80%;
+        margin: 3%;
+    }
+
+    .photo__title {
+        font-size: 18px;
+    }
+
+    .link__photo {
+        height: 180px;
+    }
+
+    #info__content {
+        flex-wrap: wrap;
+        height: auto;
+        width: 90%;
+        padding-bottom: 50px;
+    }
+
+    #info__block {
+        width: 90%;
+    }
+
+    .info__txt {
+        width: 90%;
+    }
+
+
+    .info__title {
+
+        font-size: 18px;
+        margin-bottom: 8%;
+    }
+
+    #info__block__img {
+        width: 90%;
+    }
+
+    .photo-copy {
+        font-size: 14px;
+    }
+
+    .footer {
+        display: none;
+    }
+
+    .vimeo__iframe {
+        width: 40vh;
+        height: 25vh;
+    }
+
+    .youtube__iframe {
+        margin-top: 10px;
+        width: 40vh;
+        height: 20vh;
+    }
+
+    .progress {
+        display: none;
+    }
+
+    .photo__content {
+        width: 95%;
+    }
+
+    .photo__block {
+        flex-direction: column;
+    }
+
+    .img_photo_Land {
+        width: 90%;
+    }
+    .img_photo {
+        width: 90%;
+    }
+
+    .back__link {
+        position: absolute;
+        bottom: unset;
+        left: 8%;
+    }
+
+    #contact {
+        flex-wrap: wrap;
+        margin-left: 10%;
+    }
+
+    #email {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .s__links {
+        font-size: 18px;
+    }
+
+
+    .error__title {
+        font-size: 28px;
+    }
+
+    .error__link {
+        font-size: 18px;
+        color: #101010;
+        text-align: center;
+        width: fit-content;
+        margin: auto;
+    }
+}
