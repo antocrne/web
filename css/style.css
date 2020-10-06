@@ -382,3 +382,49 @@ font-family: 'Open Sans', sans-serif;    font-size: 45px;
 }
 
 
+.gallery__content {
+            margin-top: 5%;
+            margin-bottom: 5%;
+}
+        
+.gallery__block {
+            width: 60%;
+            margin: auto; 
+
+}
+.gallery__line {
+            display: flex;
+
+}
+.gallery__img {
+            width: 100%;
+            margin: 3px;
+ }
+ .gallery__img2 {
+            width: 100%;
+            margin: 3px;
+            margin-bottom: 0;
+           
+}
+
+.img__gallery {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+}
+.img__gallery2 {
+            object-fit: cover;
+            width: 99.5%;
+            height: 100%;
+}
+
+.h2__title {
+    margin: 4%;
+    margin-top: 8%;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 22px;
+}
+
+
