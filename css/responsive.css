@@ -88,6 +88,13 @@
 	.main__desc {
 		font-size: 11px;
 	}
+
+	.about__content {
+	justify-content: center;
+	margin: auto;
+	margin-top: 5%;
+	width: 80%;
+	}
 }
 
 @media screen and (max-width: 780px) {
@@ -141,11 +148,23 @@
     	object-fit: cover;
 	}
 
-	
+
 
 	.info {
-    	font-size: 12px;
+    	font-size: 11px;
     	align-items: center;
+	}
+
+	#credit {
+    	font-size: 11px;
+    	margin-top: 4%;
+	}
+
+	.about__content {
+		justify-content: center;
+		margin: auto;
+		margin-top: 5%;
+		width: 100%;
 	}
 }
 
