@@ -10,8 +10,34 @@
 		<link rel="icon" type="image/svg" href="img/compass.svg">
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+		<style>
+		        #loader {
+		            border: 12px solid #f3f3f3;
+		            border-radius: 50%;
+		            border-top: 12px solid #444444;
+		            width: 70px;
+		            height: 70px;
+		            animation: spin 1s linear infinite;
+		        }
+
+		        @keyframes spin {
+		            100% {
+		                transform: rotate(360deg);
+		            }
+		        }
+
+		        .center {
+		            position: absolute;
+		            top: 0;
+		            bottom: 0;
+		            left: 0;
+		            right: 0;
+		            margin: auto;
+		        }
+		    </style>
 	</head>
-	<body class="loading">
+	<body>
+		<div id="loader" class="center"></div> 
 		<main>
 			<div class="mainvisual__scroll_top" onclick="topFunction()" id="myBtn">
 						<div class="bar"></div>
@@ -24,7 +50,7 @@
 			<div data-scroll>
 				<div class="nav">
 					<div class="nav__title-brand">
-						<a href="index"><h1 class="nav__title">Antøine Cørniere</h1></a>
+						<a href="index"><h1 class="nav__title"></h1></a>
 					</div>
 					<div class="nav__links">
 						<a href="index" class="underline">Home</a>
@@ -107,6 +133,21 @@
 
 
 		</main>
+		<script>
+        document.onreadystatechange = function() {
+            if (document.readyState !== "complete") {
+                document.querySelector(
+                  "body").style.visibility = "hidden";
+                document.querySelector(
+                  "#loader").style.visibility = "visible";
+            } else {
+                document.querySelector(
+                  "#loader").style.display = "none";
+                document.querySelector(
+                  "body").style.visibility = "visible";
+            }
+        };
+    </script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 		<script type="text/javascript">
@@ -128,6 +169,7 @@
 
 
 		</script>
+
 		<script src="js/imagesloaded.pkgd.min.js"></script>
 		<script src="js/script.js"></script>
 	</body>
