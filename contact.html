@@ -1,90 +1,89 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<title>Antoine Corniere | Contact</title>
-    <link rel="icon" type="image/svg" href="images/compass.svg">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/responsive.css">
-	
-	
-	
-</head>
-<body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="index"><h1 class="brand-title">Antøine Cørniere</h1></a>
-  <a class="navbar-toggler " data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </a>
-  <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-link" href="work">Work</a>
-      <a class="nav-link" href="about">About</a>
-      <a class="nav-link" href="contact">Contact</a>
-    </div>
-  </div>
-</nav>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Antoine Corniere | Contact</title>
+		<meta name="description" content="Personal website of Antoine Corniere. Young and passionate Filmmaker and Photographer. Contact Page" />
+		<meta name="keywords" content="filmmaker, filmmaking, photographer, photography,  antoine corniere, vidéo, vidéaste "/>
+		<meta name="author" content="Antoine Corniere"/>
+		<link rel="icon" type="image/svg" href="img/compass.svg">
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+	</head>
+	<body>
 
-<div class="content">
-<div class="content__menu resp">
-    <div class="contact_content">
-        <p id="contact" style="opacity: 1;">Contact me by clicking the email: <span class="strikethrough" id="email">contact@antoinecorniere.com</span></p>
-        <div id="social__content">
-            <div id="social__links">
-                <a href="https://www.youtube.com/channel/UC5fTp470l0mYhKxp7qyh2fA?view_as=subscriber" id="s1" class="s__links strikethrough" target="_blank" style="transform: translate(0px, 0px); opacity: 1;">YouTube</a>
-                <a href="https://www.instagram.com/antocrne/" id="s2" class="s__links strikethrough" target="_blank" style="transform: translate(0px, 0px); opacity: 1;">Instagram</a>
-                <a href="https://linkedin.com/in/antoine-corniere-2759a1179" id="s3" class="s__links strikethrough" target="_blank" style="transform: translate(0px, 0px); opacity: 1;">Linkedin</a>
-            </div>
-        </div>
-    </div>
-</div>
 
-</div>
+		<main>
+			<div class="nav">
+					<div class="nav__title-brand">
+						<a href="index"><h1 class="nav__title"></h1></a>
+					</div>
+					<div class="nav__links">
+						<a href="index" class="underline">Home</a>
+						<a href="about" class="underline">About</a>
+						<a href="contact" class="underline">Contact</a>
+					</div>
+				</div>
+					<div class="block__contact">
+						<div class="div__contact_txt">
+							<p id="contact">
+							Mail: <span class="underline" id="email">contact@antoinecorniere.com</span>
+							</p>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+				            <div id="social__links">
+				                <a href="https://www.youtube.com/channel/UC5fTp470l0mYhKxp7qyh2fA?view_as=subscriber" id="s1" class="s__links underline" target="_blank">YouTube</a>
+				                <a href="https://www.instagram.com/antocrne/" id="s2" class="s__links underline" target="_blank">Instagram</a>
+				                <a href="https://linkedin.com/in/antoine-corniere-2759a1179" id="s3" class="s__links underline" target="_blank">Linkedin</a>
+				            </div>
 
-	<script type="text/javascript">
-		$('.navbar-toggler').click(function(){
-  		$(this).toggleClass('active');
-  		return true;
-		});
-	</script>
-	<script>
-    $("#email").click(function() {
+						</div>
+						<div class="div__img_about">
+							<img src="img/contact.jpg" class="img__about">
+						</div>
 
-        if (document.selection) { // IE
-            var range = document.body.createTextRange();
-            range.moveToElementText(document.getElementById("email"));
-            range.select();
-        } else if (window.getSelection) {
-            var range = document.createRange();
-            range.selectNode(document.getElementById("email"));
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
-        }
-        document.execCommand("copy");
+					</div>
+		</main>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script type="text/javascript">
 
-        if (window.getSelection) {
-            window.getSelection().removeAllRanges();
-        }
-        else if (document.selection) {
-            document.selection.empty();
-        }
 
-        var posEmailX = $("#email").offset().left;
-        var posEmailY = $("#email").offset().top;
-        var emailHeight = $("#email").height();
-        let emailContent = document.getElementById("email").innerHTML;
+		    $("#email").click(function() {
 
-        document.getElementById("email").innerHTML = "Email copied to clipboard";
+		        if (document.selection) { // IE
+		            var range = document.body.createTextRange();
+		            range.moveToElementText(document.getElementById("email"));
+		            range.select();
+		        } else if (window.getSelection) {
+		            var range = document.createRange();
+		            range.selectNode(document.getElementById("email"));
+		            window.getSelection().removeAllRanges();
+		            window.getSelection().addRange(range);
+		        }
+		        document.execCommand("copy");
 
-        setTimeout(function(){
-            document.getElementById("email").innerHTML = "contact@antoinecorniere.com";
-        }, 1200);
-    });
-</script>
-</body>
+		        if (window.getSelection) {
+		            window.getSelection().removeAllRanges();
+		        }
+		        else if (document.selection) {
+		            document.selection.empty();
+		        }
+
+		        var posEmailX = $("#email").offset().left;
+		        var posEmailY = $("#email").offset().top;
+		        var emailHeight = $("#email").height();
+		        let emailContent = document.getElementById("email").innerHTML;
+
+		        document.getElementById("email").innerHTML = "Email copied to clipboard";
+
+		        setTimeout(function(){
+		            document.getElementById("email").innerHTML = "contact@antoinecorniere.com";
+		        }, 1400);
+		    });
+
+
+		</script>
+		<script src="js/imagesloaded.pkgd.min.js"></script>
+		<script src="js/script.js"></script>
+	</body>
 </html>
