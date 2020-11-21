@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>Antoine Corniere</title>
+  <link rel="stylesheet" href="css/master.css">
+
+</head>
+
+<body>
+
+
+
+
+
+  <div class="overlay" id="about">
+    <header class="header">
+      <nav class="header__nav" id="back__nav">
+        <span class="about__bar"></span>
+        <a href="index.html" class="about__nav" id="back__btn">Back</a>
+      </nav>
+    </header>
+    <div class="about__content">
+      <div class="info">
+        <h2 class="about__title">Filmmaker & Photographer</h2>
+        <p class="info__txt"><span>Hello!</span> I'm a french independent filmmaker and photographer. I started filmmaking and photography few years ago. I'm always trying and experiment new things to progress and tell better stories.</p>
+        <p class="info__txt">I enjoy bringing a range of visual influence into my work and combining different styles. Films and photography, are one of the greatest way to sharing stories that will inspire people and make them dream.</p>
+        <br>
+        <p id="contact">Contact:<span id="email">contact@antoinecorniere.com</span></p>
+        <br>
+        <div class="social">
+          <a href="#">Instagram</a>
+          <span style="color: #a9a9a9eb;">/</span>
+          <a href="#">YouTube</a>
+        </div>
+      </div>
+      <div class="about__picture">
+
+        <div class="picture">
+          <img src="images/about-img.jpg" alt="" class="about__img">
+          <p id="copy">Photo by <a href="https://stevenroussel.com/" target="_blank">Steven Roussel</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/ScrollMagic.min.js"></script>
+  <script type="text/javascript" src="js/plugins/debug.addIndicators.min.js"></script>
+  <script type="text/javascript" src="js/plugins/animation.gsap.min.js"></script>
+  <script type="text/javascript" src="js/plugins/gsap.min.js"></script>
+  <script type="text/javascript" src="js/plugins/TweenMax.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+
+  <script>
+
+    $("#email").click(function() {
+
+      if (document.selection) { // IE
+        var range = document.body.createTextRange();
+        range.moveToElementText(document.getElementById("email"));
+        range.select();
+      } else if (window.getSelection) {
+        var range = document.createRange();
+        range.selectNode(document.getElementById("email"));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+      }
+      document.execCommand("copy");
+
+      if (window.getSelection) {
+        window.getSelection().removeAllRanges();
+      } else if (document.selection) {
+        document.selection.empty();
+      }
+
+      var posEmailX = $("#email").offset().left;
+      var posEmailY = $("#email").offset().top;
+      var emailHeight = $("#email").height();
+      let emailContent = document.getElementById("email").innerHTML;
+
+      document.getElementById("email").innerHTML = "Email copied to clipboard";
+
+      setTimeout(function() {
+        document.getElementById("email").innerHTML = "contact@antoinecorniere.com";
+      }, 1200);
+    });
+  </script>
+
+
+</body>
+
+</html>
