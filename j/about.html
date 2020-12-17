@@ -10,32 +10,36 @@
 </head>
 
 <body>
-
-  <div class="back__div">
-    <span class="back__bar"></span>
-    <a href="javascript:history.back()" class="back__btn">Back</a>
-  </div>
-  <div class='container'>
-    <div class="info">
-      <h2 class="about__title">Filmmaker / Photographer</h2>
-
-      <p class="info__txt"><span>Hello!</span> I'm a french independent filmmaker and photographer. I started filmmaking and photography few years ago. I'm always trying and experiment new things to progress and tell better stories.</p>
-      <p class="info__txt">I enjoy bringing a range of visual influence into my work and combining different styles. Films and photography, are one of the greatest way to sharing stories that will inspire people and make them dream.</p>
-      <p id="contact">Contact:<span id="email">contact@antoinecorniere.com</span></p>
-      <br>
-      <div class="social">
-        <a href="#">Instagram</a>
-        <span style="color: #a9a9a9eb;">/</span>
-        <a href="#">YouTube</a>
+  <div id="barba-wrapper">
+    <div class="barba-container">
+      <div class="back__div">
+        <span class="back__bar"></span>
+        <a href="javascript:history.back()" class="back__btn">Back</a>
       </div>
-      <br>
-      <p id="copy">Photo by: <a href="https://stevenroussel.com/">Steven Roussel</a></p>
-    </div>
-    <div class='reveal'>
-      <img src='img/test.jpg' class="about__img">
+      <div class='container'>
+        <div class="info">
+          <h2 class="about__title">Filmmaker / Photographer</h2>
+
+          <p class="info__txt"><span>Hello!</span> I'm a french independent filmmaker and photographer. I started filmmaking and photography few years ago. I'm always trying and experiment new things to progress and tell better stories.</p>
+          <p class="info__txt">I enjoy bringing a range of visual influence into my work and combining different styles. Films and photography, are one of the greatest way to sharing stories that will inspire people and make them dream.</p>
+          <p id="contact">Contact:<span id="email">contact@antoinecorniere.com</span></p>
+          <br>
+          <div class="social">
+            <a href="#">Instagram</a>
+            <span style="color: #a9a9a9eb;">/</span>
+            <a href="#">YouTube</a>
+          </div>
+          <br>
+          <p id="copy">Photo by: <a href="https://stevenroussel.com/" target="_blank">Steven Roussel</a></p>
+        </div>
+        <div class='reveal'>
+          <img src='img/about.jpg' class="about__img">
+        </div>
+      </div>
+
     </div>
   </div>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js" integrity="sha512-7b1FfB2MGnB65aK6jrbS8k3REB+8bEE8UfP/TEwacejD0g02nLLI1VL4IPcKyiLk2lf7HJWaUYEUWc65aqaXQg==" crossorigin="anonymous"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js" integrity="sha512-wK2NuxEyN/6s53M8G7c6cRUXvkeV8Uh5duYS06pAdLq4ukc72errSIyyGQGYtzWEzvVGzGSWg8l79e0VkTJYPw==" crossorigin="anonymous"></script>
@@ -43,9 +47,6 @@
 
   </script>
   <script type="text/javascript">
-
-
-
     gsap.registerPlugin(ScrollTrigger);
 
     let revealContainers = document.querySelectorAll(".reveal");
