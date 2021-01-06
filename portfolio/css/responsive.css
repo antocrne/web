@@ -1,0 +1,118 @@
+@media screen and (max-width: 568px) {
+
+
+    .navbrand h1 {
+      font-weight: 300;
+      text-transform: uppercase;
+      color: #f0f0f0;
+      font-size: 14px;
+      letter-spacing: 3px;
+    
+    }
+
+    .mainvisual__link .fv_explore {
+      position: absolute;
+      bottom: 10vh;
+      right: 5vw;
+      width: 35vw;
+      height: 35vw;
+      line-height: 32.5vw;
+  }
+
+    .circle {
+      height: 35vw;
+      width: 35vw;
+      bottom: 10vh;
+      right: 5vw;
+    }
+
+    .navbar {
+      width: 100%;
+      text-align: center;
+    }
+
+    .mainvisual__title {
+      position: absolute;
+      top: 55%;
+      left: 48%;
+      transform: translate(-50%, -50%);
+      opacity: 1;
+      z-index: 2;
+    }
+
+    #distortion-text {
+      display: none;
+    }
+    
+
+    #distortion-text-resp {
+      display: block;
+    }
+    
+  
+
+    .rsp {
+        display: block !important;
+    }
+
+    .nav__link {
+        display: none;
+    }
+
+    .PT {
+        font-size: 4rem;
+        letter-spacing: 12px;
+        font-weight: 400;
+        color: #171717;
+      }
+
+    .pC {
+        width: 90%;
+        margin: auto;
+        margin-bottom: 3%;
+        position: relative;
+      }
+
+    .p1 {
+        top: 0;
+        left: 0;
+      }
+      
+      .p2 {
+        top: 0;
+        left: 0;
+      }
+      
+      .p3 {
+        top: 0;
+        left: 0;
+      } 
+      
+      .p4 {
+        top: 0;
+        left: 0;
+      }
+      
+      .p5 {
+        top: 0;
+        left: 0;
+      }
+      
+      .p6 {
+        top: 0;
+        left: 0;
+      }
+
+      .p7 {
+        top: 0;
+        left: 0;
+      }
+      
+      .js-rellax {
+        transform: translate3d(0,0,0) !important;
+      }
+
+      .pC__title {
+        display: block;
+      }
+}

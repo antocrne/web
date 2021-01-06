@@ -1,0 +1,348 @@
+// HTML
+
+<div class="work__content">
+      <div class="scrolling-wrapper">
+       
+        <div class="inner__wrapper">
+          
+            <!-- Card 1 -->
+            <div class="card__wrapper">
+              <div class="card__content card__1 card__1-image">
+                <img src="img/thumbnails/thumbnail-demo.jpg" alt="" class="img__card"> 
+              </div>
+      
+              <div class="card__text card__1">
+              
+                <h1 class="title">Lorem Ipsum</h1>
+                
+              </div>
+            </div>
+          
+          <!-- Card 2 -->
+          <div class="card__wrapper">
+            <div class="card__content card__2">
+              <img src="img/thumbnails/thumbnail-summer.jpg" alt="" class="img__card"> 
+            </div>
+            
+            <div class="card__text card__2">
+              
+              <h1 class="title">Lorem Ipsum</h1>
+              
+            </div>
+          </div>
+      
+          <!-- Card 3 -->
+          <div class="card__wrapper">
+            <div class="card__content card__3">
+              <img src="img/thumbnails/thumbnail-smeels.jpg" alt="" class="img__card"> 
+            </div>
+            
+            <div class="card__text card__3">
+              
+              <h1 class="title">Lorem Ipsum</h1>
+              
+            </div>
+          </div>
+          
+          <!-- Card 4 -->
+          <div class="card__wrapper">
+            <div class="card__content card__4">
+              <img src="img/thumbnails/thumbnail-luidji.jpg" alt="" class="img__card"> 
+            </div>
+            
+            <div class="card__text card__4">
+              <h1 class="title">Lorem Ipsum</h1>
+            </div>
+          </div>
+
+          <div class="card__wrapper">
+            <div class="card__content card__4">
+              <img src="img/thumbnails/thumbnail-meet.jpg" alt="" class="img__card"> 
+            </div>
+            
+            <div class="card__text card__4">
+              <h1 class="title">Lorem Ipsum</h1>
+            </div>
+          </div>
+          <div class="card__wrapper">
+            <div class="card__content card__4">
+              <img src="img/thumbnails/thumbnail-meet.jpg" alt="" class="img__card"> 
+            </div>
+            
+            <div class="card__text card__4">
+              <h1 class="title">Lorem Ipsum</h1>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+
+    // CSS CODE 
+
+
+    .scrolling-wrapper {
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.scrolling-wrapper .inner__wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: start;
+  overflow-x: auto;
+  scroll-direction: vertical;
+
+}
+.scrolling-wrapper .inner__wrapper .card__wrapper:nth-child(4) {
+  margin-right: 100px;
+}
+.scrolling-wrapper .inner__wrapper .card__wrapper {
+  width: 60%;
+  height: 90%;
+  margin: 0 50px;
+  text-align: center;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: centre;
+  position: relative;
+  
+}
+
+
+.scrolling-wrapper .inner__wrapper .card__wrapper .card__content {
+  width: 75%;
+  transition: all .5s ease-in-out;
+}
+.scrolling-wrapper .inner__wrapper .card__wrapper .card__content :before {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
+
+.scrolling-wrapper .inner__wrapper .card__wrapper .card__content:hover, .scrolling-wrapper .inner__wrapper .card__wrapper .card__text {
+  cursor: pointer;
+}
+.scrolling-wrapper .inner__wrapper .card__wrapper .card__content:hover {
+  margin-bottom: 20px;
+}
+.scrolling-wrapper .inner__wrapper .card__wrapper .card__text {
+  position: absolute;
+  left: 50%;
+  width: 50%;
+}
+.scrolling-wrapper .inner__wrapper .card__wrapper .card__text .card__cta {
+  color: #171717;
+}
+
+.scrolling-wrapper .inner__wrapper .card__wrapper h1 {
+  margin: 0px;
+  padding: 0px;
+  text-align: left;
+  padding-bottom: 10px;
+  font-size: 5rem;
+  font-weight: 100;
+  color: #171717;
+}
+
+.img__card {
+  width: 100%;
+  height: 55vh;
+  object-fit: cover;
+}
+
+
+.scrolling-wrapper {
+  -webkit-overflow-scrolling: touch;
+}
+
+
+
+// JAVASCRIPT CODE
+
+
+
+/*
+
+// Animate content in
+//let tlCardIn = new TimelineMax(); 
+//tlCardIn.from('.card__wrapper', 1, { opacity: 0, y: '-100px', ease: Power1.easeOut });
+
+let tlTextIn = new TimelineMax();
+tlTextIn.from('.card__text', 1, { opacity: 0, y: '-50px', ease: Power1.easeOut });
+tlTextIn.from('.nav_fixed', 1, { opacity: 0, ease: Power1.easeOut });
+
+
+$(".card__1").click(function(){
+let tl1 = new TimelineMax();
+  tl1.to('.card__1, .card__2, .card__3, .card__4', .8, {opacity: 0, y: '-200px', ease: Power1.easeInOut});
+ setTimeout(function () {
+            window.location.href = "work.html"; 
+  }, 1500);      
+});
+
+$(".card__2").click(function(){
+let tl2 = new TimelineMax();
+  tl2.to('.card__1, .card__2, .card__3, .card__4', .8, {opacity: 0, y: '-200px', ease: Power1.easeInOut});
+
+//   Add window.location = urlHere 
+});
+
+$(".card__3").click(function(){
+let tl = new TimelineMax();
+  tl.to('.card__1, .card__2, .card__3, .card__4', .8, {opacity: 0, y: '-200px', ease: Power1.easeInOut});
+
+//   Add window.location = urlHere 
+});
+
+
+$(".card__4").click(function(){
+let tl = new TimelineMax();
+  tl.to('.card__1, .card__2, .card__3, .card__4', .8, {opacity: 0, y: '-200px', ease: Power1.easeInOut});
+
+//   Add window.location = urlHere 
+});
+
+
+*/
+
+
+
+
+
+
+
+//WORK GALLERY 
+
+
+<div class="project__gallery">
+    <div class="project__L">
+        <div class="pC p1  js-rellax" data-rellax-speed="-7">
+            <img src="https://images.unsplash.com/photo-1608664185058-81fbecb8efbd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80" alt="">
+        </div>
+        <div class="pC p2 js-rellax" data-rellax-speed="-6">
+            <img src="https://images.unsplash.com/photo-1608768025308-a713c513952a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80" alt="">
+        </div>
+        <div class="pC p3 js-rellax" data-rellax-speed="-8">
+            <img src="https://images.unsplash.com/photo-1608883851870-5212b69882b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80" alt="">
+        </div>
+    </div>
+    <div class="project__L">
+        <div class="pC p4 js-rellax" data-rellax-speed="-8">
+            <img src="https://images.unsplash.com/photo-1608921683658-7520778122cb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=975&q=80" alt="">
+        </div>
+        <div class="pC p2 js-rellax" data-rellax-speed="-5">
+            <img src="https://images.unsplash.com/photo-1608710114690-1bd75e377540?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80" alt="">
+        </div>
+        <div class="pC p5 js-rellax" data-rellax-speed="-6">
+            <img src="https://images.unsplash.com/photo-1608754075243-05868d957f23?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=978&q=80" alt="">
+        </div>
+    </div>
+
+    <div class="project__L">
+        <div class="pC p1  js-rellax" data-rellax-speed="-7">
+            <img src="https://images.unsplash.com/photo-1608854944258-9ffa9d664b32?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1300&q=80" alt="">
+        </div>
+        <div class="pC p6 js-rellax" data-rellax-speed="-5">
+            <img src="https://images.unsplash.com/photo-1608760968859-5077ec79b607?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3334&q=80" alt="">
+        </div>
+        <div class="pC p3 js-rellax" data-rellax-speed="-8">
+            <img src="https://images.unsplash.com/photo-1608750400157-523fb3403bbf?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80" alt="">
+        </div>
+    </div>
+    
+   
+</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
+  <script src="js/plugins/TweenMax.min.js"></script>
+  <script src="js/plugins/rellax.min.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+      var rellax = new Rellax('.js-rellax', {
+        center: true
+      });
+
+
+
+$('.project').mouseover(function() {
+				$('.project').mousemove(function(e) {
+					var x = e.pageX - $(this).offset().left,
+							y = e.pageY - $(this).offset().top;
+
+					var px = x/$(this).width(),
+							py = y/$(this).height();
+					
+					var xx = -15 + (30*px),
+							yy = 15 - (30*py);
+				
+					//TweenMax.killTweensOf($(this));
+					TweenMax.to($(this), 0.5, {rotationY: xx, rotationX: yy, rotationZ: 0, transformPerspective: 1000, ease: Quad.easeOut});
+				});
+			}).mouseout(function() {
+				$(this).unbind('mousemove');
+				//TweenMax.killTweensOf($(this));
+				TweenMax.to($(this), 0.5, {rotationY: 0, rotationX: 0, rotationZ: 0, transformPerspective: 1000, ease: Quad.easeOut});
+			});
+  </script>
+
+
+
+
+.project__L {
+  width: 90%;
+  margin: auto;
+}
+
+.pC {
+  width: 25%;
+  margin: 4%;
+  position: relative;
+}
+
+.pC img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+}
+
+.p1 {
+  top: 10vh;
+  left: 8vw;
+}
+
+.p2 {
+  top: 8vh;
+  left: 60vw;
+}
+
+.p3 {
+ bottom: 5vh;
+ left: 35vw;
+} 
+
+.p4 {
+  top: 10vh;
+  left: 5vw;
+}
+
+.p5 {
+  bottom: 5vh;
+ left: 25vw;
+}
+
+.p6 {
+  top: 8vh;
+  left: 55vw;
+}
