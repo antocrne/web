@@ -270,6 +270,7 @@ a {
 .photos img {
     height: 65vh;
     object-fit: cover;
+    pointer-events: none;
 }
 
 .photos__land {
