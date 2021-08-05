@@ -290,7 +290,7 @@ a {
 .info__inner {
     position: relative;
     width: 75%;
-    height: 90vh;
+    height: 80vh;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -339,6 +339,29 @@ a {
     height: 60vh;
     object-fit: cover;
     pointer-events: none;
+}
+
+.info__exp {
+    width: 75%;
+    margin: auto;
+    margin-bottom: 5%;
+}
+
+.info__exp h2 {
+    font-weight: 300;
+    color: var(--color-two);
+    margin: 2%;
+}
+
+.exp__txt { 
+    font-size: 18px;
+    margin: 2%;
+    margin-bottom: 0.5%;
+    margin-top: 0.5%;
+}
+
+.exp__txt span {
+    font-weight: 500;
 }
 
 .socials a {
@@ -403,6 +426,12 @@ a {
     .photos img {
         height: 35vh;
         object-fit: cover;
+    }
+
+    .info__inner {
+       
+        height: 60vh;
+       
     }
 
     .info__pic img {
@@ -524,7 +553,7 @@ a {
     .info__inner {
         flex-wrap: wrap;
         width: 90%;
-       
+        height: 80vh;
     }
 
     .info {
@@ -550,11 +579,18 @@ a {
 
     .info__pic img {
         width: 100%;
-        height: 50vh;
+        height: 25vh;
         object-fit: cover;
     }
-    
 
+    .info__exp {
+        margin-top: 5%;
+        padding-top: 0%;
+    }
+    
+    .exp__txt {
+        font-size: 16px;
+    }
     
 }
 
@@ -582,6 +618,11 @@ a {
         letter-spacing: 2px;
         font-size: 16px;
     }
+
+    .info__exp {
+        margin-top: 5%;
+        padding-top: 10%;
+    }
 }
 
 @media screen and (max-width: 320px) {
@@ -596,6 +637,11 @@ a {
         font-size: 12px;
         letter-spacing: 1px;
         margin-top: 2%;
+    }
+
+    .info__exp {
+        margin-top: 5%;
+        padding-top: 50%;
     }
 }
 
