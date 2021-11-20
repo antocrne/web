@@ -1,0 +1,155 @@
+@import url("https://use.typekit.net/ufr5oof.css");
+
+html,
+body {
+  margin: 0;
+  font-family: sans-serif;
+  --color-one: #E6027D;
+  --color-temp: #0a0a0a; 
+  --font__title: itc-benguiat, serif;
+}
+
+
+
+  /* Navigation menu CSS */
+
+  .navbar {
+    margin: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-temp);
+}
+
+.navbrand a {
+    color: var(--color-temp);
+}
+
+.brand {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.nav__links a {
+    margin-left: 15px;
+    font-size: 16px;
+    color: var(--color-temp);
+    padding: 0 2px 3px;
+}
+
+.active__link {
+    border-bottom: 1px solid var(--color-temp);
+}
+
+
+
+main {
+    overflow-x: hidden; /*or overflow-x:scroll */
+    display: flex;
+}
+
+h1 {
+    margin: 0;
+}
+
+section {
+    min-width: 50vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sr__home {
+    flex-direction: column-reverse;
+}
+
+.sr__title {
+    width: 60%;
+    text-align: right;
+    margin-top: 2%;
+   
+}
+
+
+/*
+
+section:nth-child(even) {
+    background-color: teal;
+    color: white;
+}
+
+*/
+
+
+a {
+    text-decoration: none;
+}
+
+.project__thumb {
+    width: 60%;
+    overflow: hidden;
+}
+
+.project__img {
+    width: 100%;
+    transform: scale(1);
+    transition: 0.5s ease-in-out;
+    
+}
+
+.project__img:hover {
+    transform: scale(1.1);
+    
+}
+
+.sr__pic {
+    height: 65vh;
+    object-fit: cover;
+
+}
+
+.sr__pic:hover {
+    transform: scale(1);
+}
+
+
+.t__top {
+    flex-direction: column;
+}
+
+.t__bottom {
+    flex-direction: column-reverse;
+}
+
+.p__title {
+    width: 60%;
+    text-align: left;
+    margin-top: 2%;
+    font-family: itc-benguiat, serif;
+    font-weight: 500;
+    font-style: normal;
+   
+}
+
+.p__title2 {
+    width: 60%;
+    text-align: right;
+    margin-top: 2%;
+    font-family: itc-benguiat, serif;
+    font-weight: 500;
+    font-style: normal;
+   
+}
+
+.numbers {
+    color: var(--color-one);
+    font-size: 2vw;
+}
+
+
+
+
+
