@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World</title>
+  <link rel="stylesheet" href="./master.css">
+
+</head>
+
+<body >
+
+
+
+
+<div class="nav__brand">
+  <h1 class="brand"><a href="index.html">Antoine Corniere</a></h1>
+</div>
+
+<div class="scrolldown">
+		<img src="https://ukyomas.jp/wp-ukyomas/wp-content/themes/ukyomas/images/common/scrolldown.svg" loading="lazy" alt="">
+		<div class="audio_wrap">
+			<div class="audio_button"></div>
+			<audio id="audio" src="./music/in_your_arms.mp3" loop="">
+			 <code>audio</code>
+			</audio>
+		</div>
+	</div>
+  <div class="m-scroll">
+    <div class="m-scroll__title">
+      <div class="right-to-left" id="right">
+        <span>Site under construction Site under construction Site under construction Site under construction Site under construction Site under construction</span>
+      </div>
+      <div class="left-to-right">
+          <span>Site under construction Site under construction Site under construction Site under construction Site under construction Site under construction</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span id="email">hello<span>@</span>antoinecorniere.com</span>
+  </footer>
+
+  <div class="mouse-stoker">
+  	<div class="pc-only cursor" style="top: 251px; left: 1684px;"></div>
+  	<div class="pc-only follower" style="top: 230px; left: 1663px;"></div>
+  </div>
+    <div class="noise"></div>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" charset="utf-8"></script>
+  <script src="	https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+
+  $(function () {
+      var audioBtn = $('.audio_button'),
+      audioWrap = $('.audio_wrap'),
+      audio = document.getElementById('audio');
+
+      audioBtn.on('click', function () {
+        if( audioWrap.hasClass('play') ) {
+          audio.pause();
+          audioWrap.removeClass('play');
+        } else {
+          audio.play();
+          audioWrap.addClass('play');
+        }
+      });
+    });
+
+
+
+
+  $("#email").click(function() {
+
+      if (document.selection) { // IE
+          var range = document.body.createTextRange();
+          range.moveToElementText(document.getElementById("email"));
+          range.select();
+      } else if (window.getSelection) {
+          var range = document.createRange();
+          range.selectNode(document.getElementById("email"));
+          window.getSelection().removeAllRanges();
+          window.getSelection().addRange(range);
+      }
+      document.execCommand("copy");
+
+      if (window.getSelection) {
+          window.getSelection().removeAllRanges();
+      }
+      else if (document.selection) {
+          document.selection.empty();
+      }
+
+      var posEmailX = $("#email").offset().left;
+      var posEmailY = $("#email").offset().top;
+      var emailHeight = $("#email").height();
+      let emailContent = document.getElementById("email").innerHTML;
+
+      document.getElementById("email").innerHTML = "Email copied to clipboard";
+
+      setTimeout(function(){
+          document.getElementById("email").innerHTML = "hello@antoinecorniere.com";
+      }, 1200);
+  });
+
+
+
+  var
+  cursor = $(".cursor"),
+  follower = $(".follower"),
+  cWidth = 8,
+  fWidth = 50,
+  delay = 10,
+  mouseX = 0,
+  mouseY = 0,
+  posX = 0,
+  posY = 0;
+
+
+  TweenMax.to({}, .001, {
+    repeat: -1,
+    onRepeat: function() {
+      posX += (mouseX - posX) / delay;
+      posY += (mouseY - posY) / delay;
+
+      TweenMax.set(follower, {
+          css: {
+            left: posX - (fWidth / 2),
+            top: posY - (fWidth / 2)
+          }
+      });
+
+      TweenMax.set(cursor, {
+          css: {
+            left: mouseX - (cWidth / 2),
+            top: mouseY - (cWidth / 2)
+          }
+      });
+    }
+  });
+
+
+  $(document).on("mousemove", function(e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+  });
+
+  $("a").on({
+    "mouseenter": function() {
+      cursor.addClass("is-active");
+      follower.addClass("is-active");
+    },
+    "mouseleave": function() {
+      cursor.removeClass("is-active");
+      follower.removeClass("is-active");
+    }
+  });
+
+  $("#email").on({
+    "mouseenter": function() {
+      cursor.addClass("is-active");
+      follower.addClass("is-active");
+    },
+    "mouseleave": function() {
+      cursor.removeClass("is-active");
+      follower.removeClass("is-active");
+    }
+  });
+
+  $(".audio_wrap").on({
+    "mouseenter": function() {
+      cursor.addClass("is-active");
+      follower.addClass("is-active");
+    },
+    "mouseleave": function() {
+      cursor.removeClass("is-active");
+      follower.removeClass("is-active");
+    }
+  });
+
+
+
+
+
+  </script>
+</body>
+
+</html>

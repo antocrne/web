@@ -1,0 +1,288 @@
+@import url("https://use.typekit.net/fyu6srr.css");
+@font-face {
+  font-family: "Faktum Test";
+  src: url("./font/Faktum_Test_Regular.otf"), url('./Faktum_Test_Bold');
+}
+
+body {
+    cursor: none;
+  --colorBg: #f1f1f1;
+  --colorText: #0A0A0A;
+  background-color: var(--colorBg);
+  color: var(--colorText);
+  font-family: "Faktum Test";
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+
+.noise::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: .03;
+  z-index: 1000;
+  pointer-events: none;
+  background-image: url(img/noise.gif);
+}
+
+.cursor,
+.follower {
+  border-radius: 50%;
+  position: fixed;
+  mix-blend-mode: difference;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.cursor {
+  width: 8px;
+  height: 8px;
+  background-color: #f1f1f1;
+  z-index: 1001;
+}
+.cursor.is-active {
+  transform: scale(1);
+  background-color: #f1f1f1;
+}
+
+.follower {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border: solid 1px #f1f1f1;
+  z-index: 1000;
+  transition: transform ease 0.1s;
+  text-align: center;
+}
+.follower span {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  transform: scale(0);
+}
+.follower.is-active {
+  transform: scale(2);
+  border: solid 1px #f1f1f1;
+}
+
+.nav__brand {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 100;
+}
+
+.brand {
+  margin: 0;
+  font-size: 1.1em;
+  text-transform: uppercase;
+}
+
+.brand a {
+  text-decoration: none;
+  color: var(--colorText);
+  cursor: none;
+}
+
+.scrolldown {
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    z-index: 100;
+}
+
+.scrolldown img {
+    width: 170px;
+    animation: 15s linear infinite rotation1;
+}
+
+@keyframes rotation1 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.scrolldown .audio_wrap {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.scrolldown .audio_button {
+  width: 30px;
+  height: 30px;
+  background: url('./img/volume_off.svg') no-repeat center center;
+  background-size: contain;
+}
+
+.scrolldown  .play .audio_button {
+  width: 30px;
+  height: 30px;
+  background: url('./img/volume_up.svg') no-repeat center center;
+background-size: contain;
+}
+
+.m-scroll {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  overflow: hidden;
+  z-index: 1;
+}
+.m-scroll__title {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  transform: scale(2);
+  transition: all 1s ease;
+}
+.right-to-left {
+  display: flex;
+  align-items: flex-end;
+  -webkit-animation: scrollText 60s infinite linear;
+          animation: scrollText 60s infinite linear;
+
+}
+
+
+
+.left-to-right {
+  display: flex;
+  -webkit-animation: scrollText2 60s infinite linear;
+          animation: scrollText2 60s infinite linear;
+
+}
+.m-scroll__title span {
+  margin: 0;
+  margin-right: 15px;
+  font-size: 5rem;
+  color: #101010;
+  text-transform: uppercase;
+  transition: all 2s ease;
+}
+
+.left-to-right span {
+  color: transparent;
+  -webkit-text-stroke: 1px #101010;
+}
+
+/*div:hover {
+  animation-play-state: paused;
+}*/
+@-webkit-keyframes scrollText {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes scrollText {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@-webkit-keyframes scrollText2 {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes scrollText2 {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+}
+
+
+footer > span {
+  font-size: 1em;
+  text-transform: uppercase;
+
+}
+
+footer > span > span {
+    font-family:"rustica";
+}
+
+
+@media screen and (max-width: 414px) {
+
+  .scrolldown {
+      position: fixed;
+      top: 10%;
+      right: 5%;
+      z-index: 100;
+  }
+
+  .scrolldown img {
+      width: 130px;
+      animation: 15s linear infinite rotation1;
+  }
+
+  .scrolldown .audio_button {
+    width: 25px;
+    height: 25px;
+
+  }
+
+  .scrolldown  .play .audio_button {
+    width: 25px;
+    height: 25px;
+  }
+
+  .m-scroll__title span {
+    margin: 0;
+    margin-right: 15px;
+    font-size: 2rem;
+    color: #101010;
+    text-transform: uppercase;
+    transition: all 2s ease;
+  }
+
+  .left-to-right span {
+    color: transparent;
+    -webkit-text-stroke: 1px #101010;
+  }
+
+  .mouse-stoker {
+    display: none;
+  }
+}
