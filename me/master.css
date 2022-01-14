@@ -286,3 +286,11 @@ footer > span > span {
     display: none;
   }
 }
+
+@media screen and (max-width: 390px) {
+  .left-to-right span {
+    color: transparent;
+    -webkit-text-stroke: 0.6px #101010;
+  }
+
+}
