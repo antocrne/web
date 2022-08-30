@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Antoine Corniere a young and passionate Filmmaker, Photographer and Storyteller.">
-  <meta name="keywords" content="filmmaker, filmmaking, photographer, photography,  antoine corniere ">
-  <meta property="og:site_name" content="Antoine Corniere">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal website of Antoine Corniere. Young and passionate Filmmaker and Photographer.">
+    <meta name="keywords" content="filmmaker, filmmaking, photographer, photography,  antoine corniere ">
+    <meta property="og:site_name" content="Antoine Corniere">
 	<meta property="og:title" content="Antoine Corniere">
 	<meta property="og:url" content="https://antoinecorniere.com">
-	<meta property="og:description" content="Antoine Corniere a young and passionate Filmmaker, Photographer and Storyteller.">
+	<meta property="og:description" content="Personal website of Antoine Corniere. Young and passionate Filmmaker and Photographer.">
 	<meta itemprop="name" content="Antoine Corniere">
 	<meta itemprop="url" content="https://antoinecorniere.com">
 	<meta name="robots" content="index, follow">
-  <title>Antoine Corniere</title>
-
-  <link rel="icon" type="image/svg" href="img/compass.svg">
-  <link rel="stylesheet" href="./master.css">
+    <title>Antoine Corniere</title>
+    <link rel="icon" type="image/svg" href="img/compass.svg">
+    <link rel="stylesheet" href="css/style.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130545893-1"></script>
 <script>
@@ -28,182 +26,61 @@
   gtag('config', 'UA-130545893-1');
 </script>
 
+
 </head>
+<body>
+   <div class="navbar">
+       <div class="navbrand"><a href="index"><span class="brand"></span></a></div>
+       <div class="nav__links">
+           <a href="films">Films</a>
+           <a href="photography">Photography</a>
+           <a href="about">About</a>
+       </div>
+   </div>
 
-<body >
+   <div class="home__content">
+        <div class="home__txt">
+            <h1 class="home__title">Filmmaker & Photographer</h1>
+            <p class="home__info"> <span id="email" class="mail">antoinecorniere.pro@gmail.com</span></p>
+        </div>
 
+        <div class="home__pic">
+            <img src="img/home.jpg" alt="">
+        </div>
 
+        <div id="vidLinks">
+            <h2 class="last__title">Last Work</h2>
+            <div class="movies"  style="justify-content: center;">
 
+                <div class="m__l m__index">
+                    <a href="https://www.youtube.com/embed/iDonBNBYY2c" target="mainVid" class="Vlinks">
 
-<div class="nav__brand">
-  <h1 class="brand"><a href="index">Antoine Corniere</a></h1>
-</div>
+                        <img src="img/thumbnails/alium.jpg" alt="" class="movies__img">
+                        <img src="img/play-button.png" alt="" class="play">
+                    </a>
+                    <h3 class="movies__title">Being Herself - Alium</h3>
+                    <p class="movies__type">Fake Commercial</p>
+                </div>
+            </div>
 
-<div class="scrolldown">
-  <img src="img/scrolldown.svg" loading="lazy" alt="">
-		<div class="audio_wrap">
-			<div class="audio_button"></div>
-			<audio id="audio" src="./music/wake_up.mp3" loop="">
-			 <code>audio</code>
-			</audio>
-		</div>
-	</div>
-  <div class="m-scroll">
-    <div class="m-scroll__title">
-      <div class="right-to-left" id="right">
-        <span>Site under construction Site under construction Site under construction Site under construction Site under construction Site under construction</span>
-      </div>
-      <div class="left-to-right">
-          <span>Site under construction Site under construction Site under construction Site under construction Site under construction Site under construction</span>
-      </div>
+        </div>
     </div>
-  </div>
+<div id="modal">
+    <div class="closeV">
+        <span class="close__video"></span>
+        <span class=" close__video"></span>
+    </div>
+    <div id="vidSizer">
+    <div id="vidHolder">
+        <iframe name="mainVid" id="mainVid" width="560" height="315" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    </div>
 
-  <footer>
-    <span id="email">hello<span>@</span>antoinecorniere.com</span>
-  </footer>
-
-  <div class="mouse-stoker">
-  	<div class="pc-only cursor" style="top: 251px; left: 1684px;"></div>
-  	<div class="pc-only follower" style="top: 230px; left: 1663px;"></div>
-  </div>
-    <div class="noise"></div>
-  <script src="https://code.jquery.com/jquery-3.4.1.js" charset="utf-8"></script>
-  <script src="	https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" charset="utf-8"></script>
-  <script type="text/javascript">
-
-  $(function () {
-      var audioBtn = $('.audio_button'),
-      audioWrap = $('.audio_wrap'),
-      audio = document.getElementById('audio');
-
-      audioBtn.on('click', function () {
-        if( audioWrap.hasClass('play') ) {
-          audio.pause();
-          audioWrap.removeClass('play');
-        } else {
-          audio.play();
-          audioWrap.addClass('play');
-        }
-      });
-    });
+</div>
+   </div>
 
 
-
-
-  $("#email").click(function() {
-
-      if (document.selection) { // IE
-          var range = document.body.createTextRange();
-          range.moveToElementText(document.getElementById("email"));
-          range.select();
-      } else if (window.getSelection) {
-          var range = document.createRange();
-          range.selectNode(document.getElementById("email"));
-          window.getSelection().removeAllRanges();
-          window.getSelection().addRange(range);
-      }
-      document.execCommand("copy");
-
-      if (window.getSelection) {
-          window.getSelection().removeAllRanges();
-      }
-      else if (document.selection) {
-          document.selection.empty();
-      }
-
-      var posEmailX = $("#email").offset().left;
-      var posEmailY = $("#email").offset().top;
-      var emailHeight = $("#email").height();
-      let emailContent = document.getElementById("email").innerHTML;
-
-      document.getElementById("email").innerHTML = "Email copied to clipboard";
-
-      setTimeout(function(){
-          document.getElementById("email").innerHTML = "hello@antoinecorniere.com";
-      }, 1200);
-  });
-
-
-
-  var
-  cursor = $(".cursor"),
-  follower = $(".follower"),
-  cWidth = 8,
-  fWidth = 50,
-  delay = 10,
-  mouseX = 0,
-  mouseY = 0,
-  posX = 0,
-  posY = 0;
-
-
-  TweenMax.to({}, .001, {
-    repeat: -1,
-    onRepeat: function() {
-      posX += (mouseX - posX) / delay;
-      posY += (mouseY - posY) / delay;
-
-      TweenMax.set(follower, {
-          css: {
-            left: posX - (fWidth / 2),
-            top: posY - (fWidth / 2)
-          }
-      });
-
-      TweenMax.set(cursor, {
-          css: {
-            left: mouseX - (cWidth / 2),
-            top: mouseY - (cWidth / 2)
-          }
-      });
-    }
-  });
-
-
-  $(document).on("mousemove", function(e) {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-  });
-
-  $("a").on({
-    "mouseenter": function() {
-      cursor.addClass("is-active");
-      follower.addClass("is-active");
-    },
-    "mouseleave": function() {
-      cursor.removeClass("is-active");
-      follower.removeClass("is-active");
-    }
-  });
-
-  $("#email").on({
-    "mouseenter": function() {
-      cursor.addClass("is-active");
-      follower.addClass("is-active");
-    },
-    "mouseleave": function() {
-      cursor.removeClass("is-active");
-      follower.removeClass("is-active");
-    }
-  });
-
-  $(".audio_wrap").on({
-    "mouseenter": function() {
-      cursor.addClass("is-active");
-      follower.addClass("is-active");
-    },
-    "mouseleave": function() {
-      cursor.removeClass("is-active");
-      follower.removeClass("is-active");
-    }
-  });
-
-
-
-
-
-  </script>
+    <script src="js/jquery3.5.1.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
-
 </html>
