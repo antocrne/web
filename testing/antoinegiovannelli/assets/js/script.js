@@ -414,11 +414,19 @@
 
 
 
+//=======================================================================
+// TILT.JS
+//=======================================================================
+
+$('.js-tilt').tilt({
+    scale: 1.03,
+		maxTilt: 12,
+		perspective: 1000,
+});
+
 	// =======================================================================================
 	// Defer videos (Youtube, Vimeo)
 	// Note: When you have embed videos in your webpages it causes your page to load slower.
-	// Deffering will allow your page to load quickly.
-	// Source: https://www.feedthebot.com/pagespeed/defer-videos.html
 	// =======================================================================================
 
 	function init() {
