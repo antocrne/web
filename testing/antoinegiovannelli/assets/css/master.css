@@ -546,7 +546,7 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 .hero {
   z-index: 2;
   /* Bright things in dark environments usually cast that light, giving off a glow */
-  filter: drop-shadow(0 1px 3px);
+  filter: drop-shadow(0 1px 1.5px);
 }
 
 
@@ -958,7 +958,7 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 50vh;
+    height: 90vh;
 		padding-top: 15vh;
 }
 
