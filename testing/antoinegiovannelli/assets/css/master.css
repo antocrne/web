@@ -291,7 +291,7 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 #tt-header {
 	margin: 0;
 	padding: 0;
-	position: absolute;
+	position: relative;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -1468,6 +1468,9 @@ flex-direction: column;
 
 .project-reel{
 	padding: 10vw 6vw 1vw;
+	position: relative;
+	top: 0;
+	left: 0;
 }
 
 .project-reel-title-item {

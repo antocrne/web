@@ -55,6 +55,9 @@
 				 tl_transitIn.to(".ptr-overlay", { scaleY: 1, transformOrigin: "center bottom" }, 0);
 				 tl_transitIn.to("#tt-header", { y: -20, autoAlpha: 0 }, 0);
 				 tl_transitIn.to(".ptr-preloader", { autoAlpha: 1 }, 0.4);
+				 tl_transitIn.to(".info-appear", { y: -20, autoAlpha: 0 }, 0);
+				 tl_transitIn.to(".hr-bar", { width: "0px", autoAlpha: 0 }, 0);
+				 tl_transitIn.to(".f-reel-line", { autoAlpha: 1 }, 0);
 		}
 
 		// Transitions Out (when "ptr-overlay" slides out)
@@ -72,6 +75,16 @@
 				 if ($(".ph-appear").length) {
 				 	tl_transitOut.from(".ph-appear", { duration: 1.5, y: 60, autoAlpha: 0, stagger: 0.3, ease: Expo.easeOut, clearProps:"all" }, 1.5);
 				 }
+
+				 // Project info appear
+				tl_transitOut.from(".info-appear", { duration: 1, y: 20, autoAlpha: 0, ease: Expo.easeInOut, clearProps:"all" }, 1);
+
+				// Project bar appear
+			 	tl_transitOut.from(".hr-bar", { duration: 1.3, width: "100px", autoAlpha: 0, ease: Expo.easeInOut, clearProps:"all" }, 1.2);
+
+				// Project reel first line appear
+				tl_transitOut.from(".f-reel-line", { duration: 1, autoAlpha: 0, autoAlpha: 0, ease: Expo.easeInOut, clearProps:"all" }, 2);
+
 
 
 }
@@ -96,7 +109,7 @@
 			.not(".tt-btn-disabled a") // omit from selection
 			.not(".no-transition") // omit from selection
 			.not(".video-frame")
-			.not(".shorts-frame")
+
 			.on('click', function(e) {
 				e.preventDefault();
 
@@ -388,6 +401,25 @@
 			}
 
 	});
+
+	// Reel Thumbnail appear
+	$(".project-reel-inner").each(function() {
+		var $rThumbnail = $(this).find(".project-reel-img");
+
+		let tl_rThumbnail = gsap.timeline({
+			scrollTrigger: {
+				trigger: this,
+				start: "top bottom",
+				markers: false
+			}
+		});
+
+		if ($($rThumbnail).length) {
+			tl_rThumbnail.from($rThumbnail, { duration: 1.5, autoAlpha: 0, ease: Expo.easeOut, clearProps:"all" }, "+=0.1");
+		}
+
+
+});
 
 
 
