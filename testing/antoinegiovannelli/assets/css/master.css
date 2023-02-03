@@ -195,6 +195,23 @@ body.tt-transition .ptr-prel-content {
 }
 
 
+.background-hover {
+	color: #f1f1f1;
+	transition: 0.5s;
+	background-position: 0 0;
+	background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #f1f1f1 50%);
+	background-size: 200.22% auto;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.background-hover:hover {
+	transition: 0.5s;
+	background-position: -99.99% 0;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #f1f1f1 50%);
+	color: #0a0a0a;
+}
+
 
 /* ------------------------------------------------------------- *
  * Custom scrollbar style
@@ -439,6 +456,8 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #f1f1f1 50%);
 	color: #0a0a0a;
 }
+
+
 
 #no1 {
     position: absolute;
@@ -1236,6 +1255,9 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 	font-size: 2.5rem;
 	text-transform: uppercase;
 	letter-spacing: 2px;
+	font-family: "Aliens Among Us";
+	font-weight: initial;
+	letter-spacing: 4px;
 }
 
 .a-inner-element {
@@ -1254,7 +1276,9 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 .a-client-info h3 {
 	font-size: 2rem;
 	margin: 0;
-	letter-spacing: 2px;
+	font-family: "Aliens Among Us";
+	font-weight: initial;
+	letter-spacing: 4px;
 }
 
 .a-client-info p  {
@@ -1271,7 +1295,10 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 	font-size: 2rem;
 	margin: 0;
 	margin-bottom: 0.5%;
-	letter-spacing: 2px;
+	font-family: "Aliens Among Us";
+	font-weight: initial;
+	letter-spacing: 4px;
+
 }
 
 .a-xp-info p  {
@@ -1281,51 +1308,16 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 }
 
 .a-contact-info {
-	font-weight: 300;
+	font-weight: 700;
 }
 
 #email {
 	cursor: pointer;
 	font-style: italic;
+	font-weight: 700;
 }
 
 
-.strikethrough {
-
-  position: relative;
-
-}
-
-.strikethrough:before, .strikethrough:after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 1.5px;
-  top: 50%;
-  margin-top: -0.25px;
-  background: #f1f1f1;
-}
-
-.strikethrough:before {
-  left: -2.5px;
-}
-.strikethrough:after {
-  right: 2.5px;
-  background: #f1f1f1;
-  transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-.strikethrough:hover:before {
-  background: #f1f1f1;
-  width: 100%;
-  transition: width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-.strikethrough:hover:after {
-  background: transparent;
-  width: 100%;
-  transition: 0s;
-}
 
 /* About circle
 ====================== */
@@ -1338,6 +1330,9 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 	height: 50%;
 	z-index: 0;
 	pointer-events: none;
+	font-family: "Aliens Among Us";
+	font-weight: initial;
+	letter-spacing: 4px;
 }
 @media (max-width: 1024px) {
 	.about-circle {
