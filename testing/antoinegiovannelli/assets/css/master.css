@@ -1,4 +1,7 @@
-
+@font-face {
+  font-family: "Aliens Among Us";
+  src: url("../fonts/Aliens_Among_Us.ttf");
+}
 
 * { box-sizing: border-box; }
 
@@ -291,7 +294,7 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 #tt-header {
 	margin: 0;
 	padding: 0;
-	position: relative;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -418,18 +421,23 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 .nav__link__overlay {
     font-size: 3.5rem;
     margin: 25px;
+		padding-left: 10px;
+		padding-right: 10px;
     text-transform: uppercase;
     letter-spacing: 4px;
     font-weight: 600;
     color: #f1f1f1;
 		transition: 0.5s;
-		opacity: 0.6;
+		background-position: 0 0;
+	  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #f1f1f1 50%);
+	  background-size: 200.22% auto;
 }
 
 .nav__link__overlay:hover {
 	transition: 0.5s;
-	color: #f1f1f1;
-	opacity: 1;
+	background-position: -99.99% 0;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #f1f1f1 50%);
+	color: #0a0a0a;
 }
 
 #no1 {
@@ -535,8 +543,11 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 	font-size: 3rem;
   margin: 0;
 	text-transform: uppercase;
-	font-family: 'Poppins', sans-serif;
+	font-family: "Aliens Among Us";
+	font-weight: initial;
+	letter-spacing: 4px;
 	color: #dbdbdb;
+	text-align: center;
 }
 
 .content__subtitle {
@@ -949,7 +960,6 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 		font-size: 2rem;
 	  margin: 0;
 		text-transform: uppercase;
-		font-family: 'Poppins', sans-serif;
 		color: #dbdbdb;
 		margin: 0;
 		text-align: center;
@@ -972,7 +982,6 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 		font-size: 2rem;
 	  margin: 0;
 		text-transform: uppercase;
-		font-family: 'Poppins', sans-serif;
 		color: #dbdbdb;
 		margin: 3%;
 		text-align: center;
@@ -1029,10 +1038,12 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 	width: 100%;
 	animation: sdc-rotation 8s infinite linear;
 }
+
 .scroll-down-circle rect {
 	fill: #FFF;
 }
 .scroll-down-circle text {
+	font-family: "Aliens Among Us";
 	font-size: 33px;
 	font-weight: normal;
 	text-transform: uppercase;
@@ -1146,12 +1157,19 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 .s-title {
 	font-size: 4rem;
 	margin: 0;
+	font-family: "Aliens Among Us";
+	font-weight: initial;
+	letter-spacing: 4px;
 }
 
 .s-type {
 	font-size: 1.3rem;
 	font-style: italic;
 	font-weight: 300;
+}
+
+.brightness {
+	filter: brightness(80%);
 }
 
 
@@ -1476,6 +1494,9 @@ flex-direction: column;
 .project-reel-title-item {
 	font-size: 7vw;
 	margin: 0;
+	font-family: "Aliens Among Us";
+	font-weight: initial;
+	letter-spacing: 4px;
 }
 
 .project-reel-info {
@@ -1576,6 +1597,9 @@ flex-direction: column;
 .project-title {
 	font-size: 5rem;
 	margin-bottom: 0;
+	font-family: "Aliens Among Us";
+	font-weight: initial;
+	letter-spacing: 4px;
 }
 
 .project-header {
