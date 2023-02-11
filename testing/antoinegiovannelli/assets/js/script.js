@@ -509,7 +509,7 @@
     document.getElementById("email").innerHTML = "Email copied to clipboard";
 
     setTimeout(function(){
-        document.getElementById("email").innerHTML = "mail.professionnel@mail.com";
+        document.getElementById("email").innerHTML = "antogiovannelli@orange.fr";
     }, 1200);
 });
 
