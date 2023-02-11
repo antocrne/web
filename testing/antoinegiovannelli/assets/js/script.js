@@ -58,6 +58,7 @@
 				 tl_transitIn.to(".info-appear", { y: -20, autoAlpha: 0 }, 0);
 				 tl_transitIn.to(".hr-bar", { width: "0px", autoAlpha: 0 }, 0);
 				 tl_transitIn.to(".f-reel-line", { autoAlpha: 1 }, 0);
+				 tl_transitIn.to(".video-appear", { y: -20, autoAlpha: 0 }, 0);
 		}
 
 		// Transitions Out (when "ptr-overlay" slides out)
@@ -85,7 +86,8 @@
 				// Project reel first line appear
 				tl_transitOut.from(".f-reel-line", { duration: 1, autoAlpha: 0, autoAlpha: 0, ease: Expo.easeInOut, clearProps:"all" }, 2);
 
-
+				// Project video appear
+				tl_transitOut.from(".video-appear", { duration: 1, y: 20, autoAlpha: 0, ease: Expo.easeInOut, clearProps:"all" }, 2.1);
 
 }
 

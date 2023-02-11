@@ -15,8 +15,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 
 		<!-- Google Analytics - Global site tag (gtag.js) -->
 
@@ -106,7 +106,7 @@
 					************************************** -->
 					<div id="page-content">
 
-						<div class="project-header">
+						<div class="project-header info-appear">
 							<div class="project-inner-title">
 								<h2 class="project-title">No Practice</h2>
 							</div>
@@ -116,7 +116,7 @@
 						</div>
 						<div class="hr-bar"></div>
 
-						<div id="vidLinks">
+						<div id="vidLinks" class="video-appear">
 								 <div class="p-videos">
 										 <div class="video-frame">
 												 <span href="https://www.youtube.com/embed/GlTUGfy5_cI" target="mainVid" class="Vlinks">
@@ -128,16 +128,16 @@
 								 </div>
 						 </div>
 
-					<!--
+
             <div class="projects-nav">
               <div class="project-nav-link">
-                <a href="#" class="p-n-link ">Projet précédent</a>
+                <a href="no-practice.html" class="p-n-link background-hover">Precedent</a>
               </div>
               <div class="project-nav-link">
-                <a href="#" class="p-n-link ">Projet suivant</a>
+                <a href="brands.html" class="p-n-link background-hover">Suivant</a>
               </div>
-            </div>
-					-->
+          	</div>
+
 
 					</div>
 
@@ -165,13 +165,18 @@
 			<!-- End scroll container -->
 
 			<div class="video-modal">
-					<div class="closeV">
+					<div class="closeV" id="stop-btn">
 							<span class="close-video"></span>
 							<span class=" close-video"></span>
 					</div>
 					<div class="video-frame-modal">
-						<iframe  class="vf" src="https://www.youtube.com/embed/GlTUGfy5_cI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<iframe id="video" class="vf" src="https://www.youtube.com/embed/GlTUGfy5_cI?enablejsapi=1&html5=1" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+
+					<!--
+						<iframe id="video" class="vf" src="https://www.youtube.com/embed/cQdE6xjvzkM?enablejsapi=1&html5=1" frameborder="0" allowfullscreen></iframe>
+					-->
 					</div>
+
 			</div>
 
 		</main>
@@ -192,12 +197,10 @@
 		<script src="../assets/vendor/isotope/imagesloaded.pkgd.min.js"></script>
 
 
-		<!-- Theme master JS -->
+
 		<script src="../assets/js/script.js"></script>
-		<script>
+		<script src="../assets/js/player.js"></script>
 
-
-		</script>
 
 
 
