@@ -1362,6 +1362,10 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 	font-weight: 700;
 }
 
+.socials a {
+  padding-left: 0;
+}
+
 #email {
 	cursor: pointer;
 	font-style: italic;
