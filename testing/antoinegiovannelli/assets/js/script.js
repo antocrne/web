@@ -57,6 +57,7 @@
 				 tl_transitIn.to(".ptr-preloader", { autoAlpha: 1 }, 0.4);
 				 tl_transitIn.to(".info-appear", { y: -20, autoAlpha: 0 }, 0);
 				 tl_transitIn.to(".hr-bar", { width: "0px", autoAlpha: 0 }, 0);
+				 tl_transitIn.to(".about-hr-bar", { width: "0px", autoAlpha: 0 }, 0);
 				 tl_transitIn.to(".f-reel-line", { autoAlpha: 1 }, 0);
 				 tl_transitIn.to(".video-appear", { y: -20, autoAlpha: 0 }, 0);
 		}
@@ -82,6 +83,9 @@
 
 				// Project bar appear
 			 	tl_transitOut.from(".hr-bar", { duration: 1.3, width: "100px", autoAlpha: 0, ease: Expo.easeInOut, clearProps:"all" }, 1.2);
+
+				// About bar appear
+				tl_transitOut.from(".about-hr-bar", { duration: 1.3, width: "100px", autoAlpha: 0, ease: Expo.easeInOut, clearProps:"all" }, 1.2);
 
 				// Project reel first line appear
 				tl_transitOut.from(".f-reel-line", { duration: 1, autoAlpha: 0, autoAlpha: 0, ease: Expo.easeInOut, clearProps:"all" }, 2);

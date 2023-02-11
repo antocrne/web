@@ -1260,15 +1260,17 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 
 	.s-element-img {
 		width: 100%;
+    height: 45vw;
 	}
 
 	.s-img {
-    height: 48vw;
+    height: 45vw;
 	}
 	.s-element-text {
     position: relative;
     top: 0%;
 		text-align: left;
+    margin-top: 5%;
 	}
 
 	.s-title {
@@ -1290,139 +1292,85 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
  * PAGE A Propos
 /* ------------------------------------------------------------- */
 
-.inner-a-container {
-	position: relative;
-	width: 100%;
-	height: 100vh;
-	overflow: hidden;
+.about-inner {
+  width: 80%;
+  margin: auto;
+  padding-top: 5%;
 }
-.inner-about-content {
-	margin: auto;
-	width: 80%;
-	padding-top: 10%;
-}
-
-.a-elm-title {
-	font-size: 2.5rem;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	font-family: "Aliens Among Us";
+.about-title {
+  font-size: 4rem;
+  font-family: "Aliens Among Us";
 	font-weight: initial;
 	letter-spacing: 4px;
 }
 
-.a-inner-element {
-	width: 60%;
-	font-size: 16px;
+.about-hr-bar {
+    width: 100%;
+    height: 1px;
+    background-color: #f1f1f1;
 }
 
-.a-info-txt {
-	font-weight: 300;
+.about-inner-info {
+  width: 80%;
+  padding-top: 5%;
 }
 
-.a-client-info {
-	padding-top: 5%;
+.about-info-txt {
+  font-size: 18px;
+  font-weight: 300;
 }
 
-.a-client-info h3 {
-	font-size: 2rem;
-	margin: 0;
-	font-family: "Aliens Among Us";
-	font-weight: initial;
-	letter-spacing: 4px;
+.contact-line {
+  margin-top: 5%;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
-.a-client-info p  {
-	font-style: italic;
-	font-weight: 300;
-	margin: 0.5%;
-}
+.contact-line p {
+  font-size: 18px;
+  margin: 5px;
 
-.a-xp-info {
-	padding-top: 5%;
-}
-
-.a-xp-info h3 {
-	font-size: 2rem;
-	margin: 0;
-	margin-bottom: 0.5%;
-	font-family: "Aliens Among Us";
-	font-weight: initial;
-	letter-spacing: 4px;
-
-}
-
-.a-xp-info p  {
-	font-style: italic;
-	font-weight: 300;
-	margin: 0.2%;
-}
-
-.a-contact-info {
-	font-weight: 700;
-}
-
-.socials a {
-  padding-left: 0;
 }
 
 #email {
 	cursor: pointer;
 	font-style: italic;
-	font-weight: 700;
+  font-weight: 700;
+}
+
+
+.socials {
+  display: flex;
+  align-items: center;
+}
+
+.socials p {
+  font-size: 18px;
+  margin: 5px;
+}
+
+
+.social-link {
+  width: fit-content;
+  font-weight: 700;
+  margin-left: 10px;
 }
 
 
 
-/* About circle
-====================== */
-.about-circle {
-	position: absolute;
-	display: block;
-	right: -20%;
-	top: 10%;
-	width: 50%;
-	height: 50%;
-	z-index: 0;
-	pointer-events: none;
-	font-family: "Aliens Among Us";
-	font-weight: initial;
-	letter-spacing: 4px;
+.clients-title {
+  font-size: 2.5rem;
+  font-family: "Aliens Among Us";
+  font-weight: initial;
+  letter-spacing: 4px;
 }
-@media (max-width: 1024px) {
-	.about-circle {
-		display: none;
-	}
+
+.clients-txt {
+  font-size: 18px;
 }
 
 
-
-/* About circle svg */
-.about-circle svg {
-	width: 100%;
-	animation: sdc-rotation 8s infinite linear;
-}
-.about-circle rect {
-	fill: #FFF;
-}
-.about-circle text {
-	font-size: 3rem;
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 30px;
-  fill: #BBB;
-  transition: fill .2s;
-}
-
-/* Scroll down circle animation */
-@keyframes sdc-rotation {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(-360deg);
-	}
-}
 
 
 .a-footer {
@@ -1430,49 +1378,70 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 }
 
 
-@media (max-width: 844px) {
-	.inner-a-container {
-    position: relative;
-    width: 100%;
-    height: unset;
-    overflow: visible;
-	}
+
+@media (max-width: 820px) {
+
+  .a-footer {
+  	margin-top: 15%;
+  }
 }
 
 @media (max-width: 414px) {
-	.inner-a-container {
-    position: relative;
-    width: 100%;
-    height: unset;
-    overflow: visible;
-	}
 
-	.inner-about-content {
-    margin: auto;
+  .about-inner {
     width: 90%;
-    padding-top: 15%;
-	}
-	.a-inner-element {
-    width: 95%;
-    font-size: 16px;
-	}
+    margin: auto;
+    padding-top: 20%;
+  }
+  .about-title {
+    font-size: 3rem;
+  }
 
-	.a-elm-title {
-    font-size: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-	}
-	.a-client-info h3 {
-    font-size: 1.5rem;
-    margin: 0;
-    letter-spacing: 2px;
- }
- .a-xp-info h3 {
-	 font-size: 1.5rem;
-	 margin: 0;
-	 letter-spacing: 2px;
+  .about-inner-info {
+    width: 100%;
+    padding-top: 5%;
+  }
+
+  .about-info-txt {
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .contact-line {
+    margin-top: 5%;
+    font-size: 16px;
+
+  }
+
+  .contact-line p {
+    font-size: 16px;
+    margin: 5px;
+  }
+
+  #email {
+  	font-size: 16px;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+
+  .socials p {
+    display: none;
+  }
+
+  .social-link {
+    width: fit-content;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-left: 0px;
+  }
+
+
 }
-}
+
+
 
 
 /* ------------------------------------------------------------- *
@@ -1516,6 +1485,14 @@ body:not(.is-mobile).tt-smooth-scroll #scroll-container {
 	.tt-social {
 		display: none;
 	}
+}
+
+@media (max-width: 360px) {
+  .footer-section {
+      font-size: 12px;
+      margin: 5%;
+      margin-bottom: 2%;
+  }
 }
 
 
