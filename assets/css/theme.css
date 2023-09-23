@@ -534,7 +534,7 @@ body:not(.tt-boxed) .tt-header-inner,
 =============== */
 .tt-logo {
 	position: absolute;
-	top: 40px;
+	top: 45px;
 	margin-right: auto;
 	line-height: 1;
 	pointer-events: initial;
@@ -560,7 +560,7 @@ body:not(.tt-boxed) .tt-header-inner,
 /* Logo for small screens */
 @media (max-width: 1024px) {
 	.tt-logo {
-		top: 20px;
+		top: 35px;
 	}
 	.tt-logo img {
 		max-height: 42px; /* You may need to change the img height to match your logo type! */
