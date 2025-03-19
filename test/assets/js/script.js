@@ -40,13 +40,13 @@ if (isMobile) {
 // Effet de Parallax sur les images dans les slides
 slides.forEach((slide) => {
   gsap.to(slide.querySelector("img"), {
-    y: 50,  // Décalage vertical
+    y: 30,  // Décalage vertical
     scale: 1.1, // Légère augmentation de la taille de l'image
     scrollTrigger: {
       trigger: slide,
       start: isMobile ? "top bottom" : "left center",
       end: isMobile ? "bottom top" : "right center",
-      scrub: 1.2,
+      scrub: 1.05,
     },
   });
 
@@ -58,7 +58,7 @@ slides.forEach((slide) => {
       trigger: slide,
       start: isMobile ? "top bottom" : "left center",
       end: isMobile ? "bottom top" : "right center",
-      scrub: 1.2,
+      scrub: 1.05,
     },
   });
 });
@@ -127,6 +127,24 @@ slides.forEach(slide => {
   scrollContainer.addEventListener('mouseleave', () => {
     mainTitle.classList.remove('hide'); // Réaffiche le titre
   });
+
+
+  if (isMobile) {
+    const mainTitle = document.querySelector(".main-title");
+  
+    window.addEventListener("scroll", () => {
+      // Récupérer la position actuelle du scroll
+      const scrollY = window.scrollY;
+      
+      // Définir l'opacité du titre en fonction de la position du scroll
+      // Plus la page défile, plus l'opacité diminue (disparaît)
+      const opacity = 1 - (scrollY / 500); // Ajuster 500 pour contrôler la vitesse de disparition
+      
+      // Si le scroll dépasse une certaine valeur, on cache le titre complètement
+      mainTitle.style.opacity = opacity > 0 ? opacity : 0; // Empêche l'opacité d'aller en dessous de 0
+    });
+  }
+
 
 // Sélectionne la barre de progression
 const progressBar = document.querySelector(".progress-bar");
