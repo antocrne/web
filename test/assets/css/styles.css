@@ -1,0 +1,338 @@
+@import url("https://use.typekit.net/xdp4rue.css");
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    font-family: articulat-cf, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  a {
+    color: #000;
+  }
+
+.pin-spacer {
+    pointer-events: none;
+  }
+  
+.scroll-container a {
+    pointer-events: auto;
+  }
+
+
+/* Styles de la navbar */
+.navbar {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 25px 2vw; /* Espacement à gauche et à droite */
+    z-index: 100; /* Assure que la navbar est au-dessus du contenu */
+    color: #000;
+}
+
+.navbar-left .logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-family: ivypresto-display, serif;
+    font-weight: 100;
+}
+
+.navbar-right a {
+    font-size: 1rem;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+
+
+@media (max-width: 768px) {
+    .navbar-left .logo {
+        font-size: 1.5rem;
+    }
+
+    .navbar-right a {
+        font-size: 0.9rem;
+        margin-left: 15px;
+    }
+}
+
+
+.main-title {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6vw;
+    font-family: ivypresto-display, serif;
+    font-weight: 100;
+    font-style: italic;
+    text-align: center;
+    color: #000;
+    z-index: 1; /* Assure que le titre reste visible */
+    transition: opacity 0.3s ease; /* Transition pour le rendre invisible */
+    opacity: 1; /* Par défaut, il est visible */
+    pointer-events: none;
+}
+/* Lorsque le titre doit disparaître */
+.main-title.hide {
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Transition fluide */
+}
+
+.scroll-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* S'assure que la première image est visible */
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    gap: 2vw; /* Par défaut, espace de 5% de la largeur de la fenêtre */
+    white-space: nowrap;
+    will-change: transform;
+    padding: 5%;
+    padding-left: 50%;
+    padding-right: 50%;
+}
+
+/* Pour les écrans plus petits */
+@media (max-width: 768px) {
+    .carousel {
+        gap: 5vw; /* Plus d'espace sur les petits écrans */
+    }
+}
+
+/* Pour les écrans plus larges */
+@media (min-width: 1024px) {
+    .carousel {
+        gap: 2vw; /* Moins d'espace sur les grands écrans */
+    }
+}
+/* Style général pour chaque slide */
+.slide {
+    flex: 0 0 auto;
+    width: 12vw; /* Ajuste selon tes besoins */
+    height: 42vh;
+
+}
+
+/* Conteneur pour l'image */
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* L'image elle-même */
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Transition fluide pour le hover */
+}
+
+/* Style pour le titre invisible */
+.project-title-hidden {
+    display: none; /* Cacher le titre dans chaque slide */
+}
+
+/* Conteneur pour afficher le titre */
+.project-title-display {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    font-size: 6vw;
+    font-family: ivypresto-display, serif;
+    font-weight: 100;
+    font-style: italic;
+    text-align: center;
+    color: black;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Lorsqu'un projet est survolé, afficher le titre */
+.project-title-display.show {
+    opacity: 1;
+}
+
+  
+.scrolldown_info {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+  
+  .scrolldown_info svg {
+    margin-right: 10px;
+  }
+  
+  .scrolldown_info span {
+    font-size: 1rem;
+    color: #181818;
+  }
+  
+  /* Animation uniquement pour la roue de la souris */
+  @keyframes spinWheel {
+    0%, 100% {
+        transform: translateY(0);
+      }
+      
+      50% {
+        transform: translateY(50px);
+      }
+  }
+  
+  /* Appliquer l'animation à la roue */
+  .wheel {
+    animation: spinWheel 1.5s ease-in-out infinite;
+  }
+  
+  
+  /* Animation pour faire glisser la barre de gauche à droite */
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) scaleX(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(-50%) scaleX(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(50%) scaleX(0);
+    }
+  }
+  
+  
+
+.progress {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20%;
+    height: 2px;
+    background-color: #ccc;
+    border-radius: 3px;
+    z-index: 10;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #000;
+    border-radius: 3px;
+    width: 0%; /* Initialement la largeur est à 0% */
+  }
+  
+
+/* ----- MEDIA QUERIES POUR MOBILE ----- */
+
+@media (max-width: 768px) {
+        html, body {
+            overflow-x: hidden;
+        }
+
+       
+
+        .scroll-container {
+            overflow-y: scroll; /* Scroll vertical sur mobile */
+            overflow-x: hidden;
+        }
+    
+      .carousel {
+        top: 50%;
+        flex-direction: column; /* Disposition verticale des slides */
+        padding: 0;
+        width: 100%;
+        overflow: hidden;
+        justify-content: center;
+      }
+
+      /* Slide container */
+        .slide {
+            flex: 0 0 auto;
+            width: 90%; /* Ajuste selon tes besoins */
+            height: 12vh; /* Hauteur fixe des slides */
+            margin: auto;
+        }
+
+        /* Conteneur de l'image dans chaque slide */
+        .image-wrapper {
+            position: relative;
+            width: 100%; /* Prend 100% de la largeur de son conteneur */
+            height: 100%; /* Prend 100% de la hauteur de son conteneur */
+            display: flex;
+            justify-content: center; /* Centrer l'image horizontalement */
+            align-items: center; /* Centrer l'image verticalement */
+        }
+
+        /* L'image elle-même */
+        .image-wrapper img {
+            width: 100%; /* L'image prend 100% de la largeur de son conteneur */
+            height: 100%; /* L'image prend 100% de la hauteur de son conteneur */
+            object-fit: cover; /* L'image couvre l'espace sans se déformer */
+        }
+
+    /* Affichage du titre directement sur l'image */
+    .project-title-hidden {
+        display: block;
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        font-family: ivypresto-display, serif;
+        font-weight: 100;
+        font-style: italic;
+        color: white;
+        mix-blend-mode: exclusion;
+        text-align: center;
+        width: 100%;
+        opacity: 1;
+        z-index: 10;
+    }
+
+    /* Désactivation du hover */
+    .project-title-display {
+        display: none;
+    }
+
+    /* Suppression du scroll-down info */
+    .scrolldown_info {
+        display: none;
+    }
+
+    .progress {
+        display: none;
+    }
+}
+
