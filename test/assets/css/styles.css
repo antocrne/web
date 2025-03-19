@@ -172,7 +172,7 @@ body {
   
   .scrolldown_info span {
     font-size: 1rem;
-    color: #181818;
+    color: #000000;
   }
   
   /* Animation uniquement pour la roue de la souris */
@@ -334,7 +334,17 @@ body {
 
       /* Suppression du scroll-down info */
       .scrolldown_info {
-          display: none;
+        bottom: 42%;
+        left: 50%;
+      }
+
+      .scrolldown_info svg {
+        width: 25px;
+      }
+
+      .scrolldown_info span {
+        font-size: 0.8rem;
+        color: #000000;
       }
 
       .progress {

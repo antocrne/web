@@ -131,20 +131,21 @@ slides.forEach(slide => {
 
   if (isMobile) {
     const mainTitle = document.querySelector(".main-title");
+    const scrollDownInfo = document.querySelector(".scrolldown_info");
   
     window.addEventListener("scroll", () => {
       // Récupérer la position actuelle du scroll
       const scrollY = window.scrollY;
       
       // Définir l'opacité du titre en fonction de la position du scroll
-      // Plus la page défile, plus l'opacité diminue (disparaît)
-      const opacity = 1 - (scrollY / 500); // Ajuster 500 pour contrôler la vitesse de disparition
+      const opacityTitle = 1 - (scrollY / 500); // Ajuster 500 pour contrôler la vitesse de disparition du titre
+      mainTitle.style.opacity = opacityTitle > 0 ? opacityTitle : 0; // Empêche l'opacité d'aller en dessous de 0
       
-      // Si le scroll dépasse une certaine valeur, on cache le titre complètement
-      mainTitle.style.opacity = opacity > 0 ? opacity : 0; // Empêche l'opacité d'aller en dessous de 0
+      // Définir l'opacité du scrolldown_info en fonction de la position du scroll
+      const opacityScrollDown = 1 - (scrollY / 600); // Ajuster 600 pour contrôler la vitesse de disparition de l'icône scroll
+      scrollDownInfo.style.opacity = opacityScrollDown > 0 ? opacityScrollDown : 0; // Empêche l'opacité d'aller en dessous de 0
     });
   }
-
 
 // Sélectionne la barre de progression
 const progressBar = document.querySelector(".progress-bar");
