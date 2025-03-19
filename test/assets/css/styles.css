@@ -36,6 +36,7 @@ body {
     padding: 25px 2vw; /* Espacement à gauche et à droite */
     z-index: 100; /* Assure que la navbar est au-dessus du contenu */
     color: #000;
+    background-color: #fff;
 }
 
 .navbar-left .logo {
@@ -243,6 +244,10 @@ body {
         html, body {
             overflow-x: hidden;
         }
+
+        .navbar {
+          padding: 5px 5%;
+        }
           .navbar-left .logo {
             font-size: 1.5rem;
         }
@@ -253,12 +258,10 @@ body {
         }
        
         .scroll-container {
-          display: flex;
+          
           flex-direction: column;
-          justify-content: center; /* Centrer verticalement */
-          align-items: center;     /* Centrer horizontalement */
-          height: 100vh;           /* Hauteur de la fenêtre */
-          width: 100vw;            /* Largeur de la fenêtre */
+          width: 100vw;
+          height: 100vh;   /* Largeur de la fenêtre */
           overflow: hidden;
         }
      
@@ -268,16 +271,17 @@ body {
           justify-content: center; /* Centrer verticalement */
           align-items: center;     /* Centrer horizontalement */
           width: 100%;
-          min-height: 100%;
-        
+          padding-top: 80%;
+          padding-bottom: 50%;
         }
 
       /* Slide container */
         .slide {
             flex: 0 0 auto;
-            width: 90%; /* Ajuste selon tes besoins */
+            width: 80%; /* Ajuste selon tes besoins */
             height: 16vh; /* Hauteur fixe des slides */
             margin: auto;
+            margin-top: 6%;
         }
 
         /* Conteneur de l'image dans chaque slide */
@@ -297,37 +301,42 @@ body {
             object-fit: cover; /* L'image couvre l'espace sans se déformer */
         }
 
-    /* Affichage du titre directement sur l'image */
-    .project-title-hidden {
-        display: block;
-        position: absolute;
-        bottom: 10%;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: clamp(1rem, 4vw, 1.5rem);
-        font-family: ivypresto-display, serif;
-        font-weight: 100;
-        font-style: italic;
-        color: white;
-        mix-blend-mode: exclusion;
-        text-align: center;
-        width: 100%;
-        opacity: 1;
-        z-index: 10;
-    }
+        .main-title {
+          top: 20%;
+          z-index: 0;
+        }
 
-    /* Désactivation du hover */
-    .project-title-display {
-        display: none;
-    }
+      /* Affichage du titre directement sur l'image */
+      .project-title-hidden {
+          display: block;
+          position: absolute;
+          bottom: 25%;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: clamp(1rem, 4vw, 1.5rem);
+          font-family: ivypresto-display, serif;
+          font-weight: 100;
+          font-style: italic;
+          color: white;
+          mix-blend-mode: exclusion;
+          text-align: center;
+          width: 100%;
+          opacity: 1;
+          z-index: 10;
+      }
 
-    /* Suppression du scroll-down info */
-    .scrolldown_info {
-        display: none;
-    }
+      /* Désactivation du hover */
+      .project-title-display {
+          display: none;
+      }
 
-    .progress {
-        display: none;
-    }
+      /* Suppression du scroll-down info */
+      .scrolldown_info {
+          display: none;
+      }
+
+      .progress {
+          display: none;
+      }
 }
 
