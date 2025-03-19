@@ -3,34 +3,53 @@ gsap.registerPlugin(ScrollTrigger);
 const container = document.querySelector(".carousel");
 const slides = document.querySelectorAll(".slide");
 const totalWidth = container.scrollWidth;
+const totalHeight = container.scrollHeight;
 
-// Animation pour le déplacement du carousel
-gsap.to(container, {
-  x: () => -totalWidth + window.innerWidth,
-  ease: "none",
-  scrollTrigger: {
-    trigger: ".scroll-container",
-    start: "top top",
-    end: () => `+=${totalWidth}`,
-    scrub: 1,
-    pin: true,
-  },
-});
+// Vérifie si l'écran est de type mobile
+const isMobile = window.innerWidth <= 768;
 
+if (isMobile) {
+  // Animation verticale pour les écrans mobiles
+  gsap.to(container, {
+    y: () => -totalHeight + window.innerHeight,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".scroll-container",
+      start: "top top",
+      end: () => `+=${totalHeight}`,
+      scrub: 1,
+      pin: true,
+    },
+  });
+} else {
+  // Animation horizontale pour les écrans plus larges
+  gsap.to(container, {
+    x: () => -totalWidth + window.innerWidth,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".scroll-container",
+      start: "center center",
+      end: () => `+=${totalWidth}`,
+      scrub: 1,
+      pin: true,
+    },
+  });
+}
 
 // Effet de Parallax sur les images dans les slides
 slides.forEach((slide) => {
-    gsap.to(slide.querySelector("img"), {
-      y: 50,  // Décalage vertical
-      scale: 1.1, // Légère augmentation de la taille de l'image
-      scrollTrigger: {
-        trigger: slide,
-        start: "left center",
-        end: "right center",
-        scrub: 1.2,
-      },
-    });
+  gsap.to(slide.querySelector("img"), {
+    y: 50,  // Décalage vertical
+    scale: 1.1, // Légère augmentation de la taille de l'image
+    scrollTrigger: {
+      trigger: slide,
+      start: isMobile ? "top bottom" : "left center",
+      end: isMobile ? "bottom top" : "right center",
+      scrub: 1.2,
+    },
   });
+});
+
 
 // Sélectionne les éléments de l'image dans le carousel pour appliquer l'effet hover
 slides.forEach((slide) => {

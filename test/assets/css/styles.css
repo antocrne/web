@@ -57,18 +57,6 @@ body {
 
 
 
-@media (max-width: 768px) {
-    .navbar-left .logo {
-        font-size: 1.5rem;
-    }
-
-    .navbar-right a {
-        font-size: 0.9rem;
-        margin-left: 15px;
-    }
-}
-
-
 .main-title {
     position: fixed;
     top: 20px;
@@ -92,41 +80,28 @@ body {
 }
 
 .scroll-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* S'assure que la première image est visible */
-    overflow: hidden;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
 }
 
 .carousel {
     display: flex;
-    position: absolute;
-    top: 30%;
-    left: 0;
     gap: 2vw; /* Par défaut, espace de 5% de la largeur de la fenêtre */
     white-space: nowrap;
     will-change: transform;
-    padding: 5%;
+    padding-top: 10%;
     padding-left: 50%;
     padding-right: 50%;
 }
 
-/* Pour les écrans plus petits */
-@media (max-width: 768px) {
-    .carousel {
-        gap: 5vw; /* Plus d'espace sur les petits écrans */
-    }
-}
 
-/* Pour les écrans plus larges */
-@media (min-width: 1024px) {
-    .carousel {
-        gap: 2vw; /* Moins d'espace sur les grands écrans */
-    }
-}
+
+
 /* Style général pour chaque slide */
 .slide {
     flex: 0 0 auto;
@@ -256,32 +231,52 @@ body {
 
 /* ----- MEDIA QUERIES POUR MOBILE ----- */
 
+/* Pour les écrans plus larges */
+@media (min-width: 1024px) {
+  .carousel {
+      gap: 2vw; /* Moins d'espace sur les grands écrans */
+  }
+}
+
+
 @media (max-width: 768px) {
         html, body {
             overflow-x: hidden;
         }
-
-       
-
-        .scroll-container {
-            overflow-y: scroll; /* Scroll vertical sur mobile */
-            overflow-x: hidden;
+          .navbar-left .logo {
+            font-size: 1.5rem;
         }
     
-      .carousel {
-        top: 50%;
-        flex-direction: column; /* Disposition verticale des slides */
-        padding: 0;
-        width: 100%;
-        overflow: hidden;
-        justify-content: center;
-      }
+        .navbar-right a {
+            font-size: 0.9rem;
+            margin-left: 15px;
+        }
+       
+        .scroll-container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center; /* Centrer verticalement */
+          align-items: center;     /* Centrer horizontalement */
+          height: 100vh;           /* Hauteur de la fenêtre */
+          width: 100vw;            /* Largeur de la fenêtre */
+          overflow: hidden;
+        }
+     
+        .carousel {
+          display: flex;
+          flex-direction: column;
+          justify-content: center; /* Centrer verticalement */
+          align-items: center;     /* Centrer horizontalement */
+          width: 100%;
+          min-height: 100%;
+        
+        }
 
       /* Slide container */
         .slide {
             flex: 0 0 auto;
             width: 90%; /* Ajuste selon tes besoins */
-            height: 12vh; /* Hauteur fixe des slides */
+            height: 16vh; /* Hauteur fixe des slides */
             margin: auto;
         }
 
