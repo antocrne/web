@@ -6,15 +6,26 @@
     <title>Antoine Corniere</title>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
+<body class="tt-transition">
+
+     <!-- Overlay Loader -->
+     <div id="page-transition">
+        <div class="ptr-overlay"></div>
+        <div class="ptr-preloader">
+            <div class="ptr-prel-content">
+                <img class="ptr-logo" src="assets/img/logo_antoinecorniere.png" alt="logo">
+            </div> 
+        </div> 
+    </div>
+    
 
     <nav class="navbar">
         <div class="navbar-left">
-            <a href="index.html" class="logo">AC</a>
+            <a href="index.html" class="logo">Antoine Corniere</a>
         </div>
         <div class="navbar-right">
-            <a href="#">Info</a>
-            <a href="#">Work</a>
+            <a href="info.html" class="underline">Info</a>
+            <a href="#" class="underline">Work</a>
         </div>
     </nav>
     <h1 class="main-title">Seamless Stories</h1>
@@ -83,10 +94,34 @@
       <div class="progress">
         <div class="progress-bar"></div>
       </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./assets/js/library/imagesloaded.pkgd.min.js"></script>   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.6/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.6/ScrollTrigger.min.js"></script>
 <script src="assets/js/script.js"></script>
+<script>
 
+     // Assurez-vous que imagesLoaded est bien défini
+    if (typeof imagesLoaded !== "undefined") {
+      console.log("imagesLoaded est bien chargé !");
+      
+      // Attendre que le DOM soit prêt et que toutes les images soient chargées
+      $(document).ready(function() {
+        var $container = $('.carousel');  // Sélectionne le conteneur des images
+        
+        // Applique imagesLoaded au conteneur pour détecter les images chargées
+        imagesLoaded($container[0], function() {
+          console.log("Toutes les images sont chargées !");
+          // Ici, tu peux ajouter ton code une fois les images chargées
+        });
+      });
+    } else {
+      console.log("imagesLoaded n'est pas défini !");
+    }
+
+  
+</script>
 
 </body>
 </html>

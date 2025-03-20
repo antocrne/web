@@ -10,9 +10,61 @@ body {
     font-weight: 300;
     font-style: normal;
   }
+
   a {
     color: #000;
+    text-decoration: none;
   }
+
+  .sth {
+    overflow: hidden;
+  }
+
+  #page-transition {
+    display: none;
+  }
+  body.tt-transition #page-transition {
+    position: relative;
+    display: block;
+    z-index: 99999;
+  }
+  
+  /* Transition overlay */
+  body.tt-transition .ptr-overlay {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #161616;
+    z-index: 1;
+  }
+  
+  /* Transition preloader */
+  body.tt-transition .ptr-preloader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+  }
+  
+  body.tt-transition .ptr-prel-content {
+    width: 100px;
+  }
+  
+  body.tt-transition .ptr-logo {
+    width: 100%;
+      animation: spinner 3s linear infinite; 
+  }
+  
+  
+  @keyframes spinner {
+      to { transform: rotate(360deg); }
+  }
+  
+
 
 .pin-spacer {
     pointer-events: none;
@@ -21,6 +73,9 @@ body {
 .scroll-container a {
     pointer-events: auto;
   }
+
+
+
 
 
 /* Styles de la navbar */
@@ -36,16 +91,15 @@ body {
     padding: 25px 2vw; /* Espacement à gauche et à droite */
     z-index: 100; /* Assure que la navbar est au-dessus du contenu */
     color: #000;
-    background-color: #fff;
+    background-color: transparent;
 }
 
 .navbar-left .logo {
     font-size: 1.3rem;
-    font-weight: bold;
-    letter-spacing: 1px;
     text-decoration: none;
     font-family: ivypresto-display, serif;
     font-weight: 100;
+    text-transform: lowercase;
 }
 
 .navbar-right a {
@@ -54,16 +108,44 @@ body {
     text-decoration: none;
     font-weight: 500;
     letter-spacing: 1px;
+    text-transform: lowercase;
+}
+
+.underline{
+  position: relative;
+}
+
+.underline:after{
+  content: '';
+  position: absolute;
+  width: 0; height: 1.2px;
+  display: block;
+  margin-top: 1px;
+  right: 0;
+  background: #000;
+  transition: width .2s ease;
+  -webkit-transition: width .2s ease;
+}
+ 
+.underline:hover:after{
+  width: 100%;
+  left: 0;
+  background: #000;
+}
+
+.active {
+  padding-bottom: 1px;
+  border-bottom: solid 1.2px #000;
 }
 
 
 
 .main-title {
     position: fixed;
-    top: 20px;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 6vw;
+    font-size: 4vw;
     font-family: ivypresto-display, serif;
     font-weight: 100;
     font-style: italic;
@@ -76,8 +158,8 @@ body {
 }
 /* Lorsque le titre doit disparaître */
 .main-title.hide {
-    opacity: 0;
-    transition: opacity 0.3s ease; /* Transition fluide */
+    opacity: 0 !important;
+    transition: opacity 0.2s ease; /* Transition fluide */
 }
 
 .scroll-container {
@@ -138,8 +220,7 @@ body {
     left: 50%;
     width: 100%;
     transform: translateX(-50%);
-    font-size: 1.5rem;
-    font-size: 6vw;
+    font-size: 4vw;
     font-family: ivypresto-display, serif;
     font-weight: 100;
     font-style: italic;
@@ -228,15 +309,130 @@ body {
     border-radius: 3px;
     width: 0%; /* Initialement la largeur est à 0% */
   }
-  
+
+
+
+/* ------ INFO PAGE CSS ------------ */
+/* Wrapper de la page */
+.sth-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; 
+  overflow: hidden; /* On cache le défilement natif */
+}
+
+.sth-content a {
+  pointer-events: auto;
+}
+
+/* Contenu défilant */
+.scrollable-content {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  will-change: transform;
+}
+
+
+/* Vous pouvez ajouter une animation ou un effet supplémentaire */
+
+
+.info-start {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.title-content {
+  width: 45%;
+}
+
+.info-title {
+  font-size: 6vw;
+  font-family: ivypresto-display, serif;
+  font-weight: 100;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.info-subtitle {
+  font-size: 3vw;
+  font-family: ivypresto-display, serif;
+  font-weight: 100;
+  margin-top: 0;
+  text-align: right;
+}
+
+.info-image-container {
+  width: 25%;
+  margin: 5%;
+}
+
+.info-image-container img {
+  width: 100%;
+  height: 65vh;
+  object-fit: cover;
+}
+
+.info-container {
+  padding-top: 5%;
+  padding-bottom: 15%;
+}
+
+
+
+.info-txt {
+  width: 50%;
+  margin: auto;
+  font-size: 18px;
+}
+
+.info-link {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+.socials-link {
+  margin-left: 15px;
+}
+
+.footer {
+  padding: 20px 0;
+  text-align: center;
+}
+
+
 
 /* ----- MEDIA QUERIES POUR MOBILE ----- */
 
 /* Pour les écrans plus larges */
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
   .carousel {
       gap: 2vw; /* Moins d'espace sur les grands écrans */
   }
+
+  .main-title {
+    top: 15%;  
+  }
+
+  .slide {
+    width: 16vw;
+    height: 40vh;
+  }
+
+  .progress {
+    width: 50%; 
+  }
+
+
 }
 
 
@@ -247,6 +443,7 @@ body {
 
         .navbar {
           padding: 5px 5%;
+          background-color: #fff;
         }
           .navbar-left .logo {
             font-size: 1.3rem;
@@ -332,9 +529,9 @@ body {
           display: none;
       }
 
-      /* Suppression du scroll-down info */
+      
       .scrolldown_info {
-        bottom: 42%;
+        bottom: 40%;
         left: 50%;
       }
 
@@ -350,5 +547,67 @@ body {
       .progress {
         width: 50%; 
       }
+
+
+      /* --------- INFO CSS RESPONSIVE ---------*/
+      /*----------------------------------------*/
+
+      .inner-content {
+        padding-top: 5%;
+      }
+
+      .info-start {
+        flex-direction: column;
+      }
+
+      .title-content {
+        width: 90%;
+      }
+
+      .info-title {
+        font-size: 8vw;
+        font-family: ivypresto-display, serif;
+        font-weight: 100;
+        margin-bottom: 0;
+        text-align: left;
+      }
+      
+      .info-subtitle {
+        font-size: 5vw;
+        font-family: ivypresto-display, serif;
+        font-weight: 100;
+        margin-top: 0;
+        text-align: right;
+      }
+
+
+      .info-image-container {
+        width: 90%;
+        margin: 5%;
+      }
+
+      .info-image-container img {
+        height: 55vh;
+      }
+
+      .info-txt {
+        width: 90%;
+        
+      }
+      
+      .info-link {
+        width: 90%;
+       flex-wrap: wrap;
+      }
+      .socials-link {
+        margin-left: 0;
+        margin-right: 15px;
+      }
+
+      .footer {
+        padding: 50px 0;
+        text-align: center;
+      }
+
 }
 
