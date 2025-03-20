@@ -295,75 +295,70 @@ if (document.body.classList.contains("tt-transition")) {
 // =================
 
 
+
 // Récupère l'élément contenant le contenu à animer
 const scrollableSection = document.querySelector(".scrollable-content");
 
-// Fonction pour recalculer la hauteur du contenu
-function updateContentHeight() {
-    const contentHeight = scrollableSection.scrollHeight;
-    
-    // Animation de scroll
-    gsap.to(scrollableSection, {
-        y: () => -contentHeight + window.innerHeight, // Déplacement vertical du contenu
-        ease: "none", // Effet linéaire
+// Calcul de la hauteur totale du contenu à animer
+const contentHeight = scrollableSection.scrollHeight;
+
+// Vérifie si l'écran est en mode mobile
+const isMobile = window.innerWidth <= 768;
+
+// Animation de scroll (restera active sur mobile et desktop)
+gsap.to(scrollableSection, {
+    y: () => -contentHeight + window.innerHeight, // Déplacement vertical du contenu
+    ease: "none", // Effet linéaire
+    scrollTrigger: {
+        trigger: ".sth-content", // Le déclencheur de l'animation est désormais .sth-content
+        start: "top top", // Commence au top de la page
+        end: () => `+=${contentHeight}`, // Finit après avoir parcouru toute la hauteur du contenu
+        scrub: 1, // Synchronisation avec le scroll
+        pin: true, // Epingle le contenu pendant le scroll
+    },
+});
+
+// Si l'on est sur un écran mobile, on désactive les animations parallaxe
+if (!isMobile) {
+    // Récupère les éléments à animer pour le parallaxe
+    const imageContainer = document.querySelector(".info-image-container");
+    const titleContent = document.querySelector(".title-content");
+    const textContent = document.querySelector(".info-txt");
+
+    // Animation Parallaxe
+    gsap.to(imageContainer, {
+        y: -80, // Déplacement vers le haut pour l'effet parallaxe
+        ease: "none",
         scrollTrigger: {
-            trigger: ".sth-content", // Le déclencheur de l'animation
-            start: "top top", // Commence au top de la page
-            end: () => `+=${contentHeight < window.innerHeight ? window.innerHeight : contentHeight}`, // Finit après avoir parcouru toute la hauteur du contenu ou la hauteur de la fenêtre
+            trigger: ".scrollable-content", // Le scroll se déclenche ici
+            start: "top top",
+            end: "bottom top",
             scrub: 1, // Synchronisation avec le scroll
-            pin: true, // Épingle le contenu pendant le scroll
+        },
+    });
+
+    gsap.to(titleContent, {
+        y: 70, // Légère translation vers le bas
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".scrollable-content",
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
+        },
+    });
+
+    gsap.to(textContent, {
+        y: -30, // Déplacement plus subtil vers le haut
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".scrollable-content",
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
         },
     });
 }
-
-// Mise à jour de la hauteur du contenu lors du redimensionnement de la fenêtre
-window.addEventListener("resize", () => {
-    updateContentHeight();
-});
-
-// Mise à jour initiale de la hauteur
-updateContentHeight();
-
-
-// Récupère les éléments à animer pour le parallaxe
-const imageContainer = document.querySelector(".info-image-container");
-const titleContent = document.querySelector(".title-content");
-const textContent = document.querySelector(".info-txt");
-
-// Animation Parallaxe
-gsap.to(imageContainer, {
-    y: -80, // Déplacement vers le haut pour l'effet parallaxe
-    ease: "none",
-    scrollTrigger: {
-        trigger: ".scrollable-content", // Le scroll se déclenche ici
-        start: "top top",
-        end: "bottom top",
-        scrub: 1, // Synchronisation avec le scroll
-    },
-});
-
-gsap.to(titleContent, {
-    y: 70, // Légère translation vers le bas
-    ease: "none",
-    scrollTrigger: {
-        trigger: ".scrollable-content",
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-    },
-});
-
-gsap.to(textContent, {
-    y: -30, // Déplacement plus subtil vers le haut
-    ease: "none",
-    scrollTrigger: {
-        trigger: ".scrollable-content",
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-    },
-});
-
 
 
 if (document.body.classList.contains("tt-transition")) {
