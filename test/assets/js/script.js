@@ -315,6 +315,7 @@ gsap.to(scrollableSection, {
     },
 });
 
+/*
 
 // Récupère les éléments à animer pour le parallaxe
 const imageContainer = document.querySelector(".info-image-container");
@@ -441,7 +442,7 @@ if (document.body.classList.contains("tt-transition")) {
  
 }
 
-
+*/
 
 $(document).ready(function() {
 
