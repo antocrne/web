@@ -295,26 +295,34 @@ if (document.body.classList.contains("tt-transition")) {
 // =================
 
 
-
 // Récupère l'élément contenant le contenu à animer
 const scrollableSection = document.querySelector(".scrollable-content");
 
-// Calcul de la hauteur totale du contenu à animer
-const contentHeight = scrollableSection.scrollHeight;
+// Fonction pour recalculer la hauteur du contenu
+function updateContentHeight() {
+    const contentHeight = scrollableSection.scrollHeight;
+    
+    // Animation de scroll
+    gsap.to(scrollableSection, {
+        y: () => -contentHeight + window.innerHeight, // Déplacement vertical du contenu
+        ease: "none", // Effet linéaire
+        scrollTrigger: {
+            trigger: ".sth-content", // Le déclencheur de l'animation
+            start: "top top", // Commence au top de la page
+            end: () => `+=${contentHeight < window.innerHeight ? window.innerHeight : contentHeight}`, // Finit après avoir parcouru toute la hauteur du contenu ou la hauteur de la fenêtre
+            scrub: 1, // Synchronisation avec le scroll
+            pin: true, // Épingle le contenu pendant le scroll
+        },
+    });
+}
 
-// Animation de scroll
-gsap.to(scrollableSection, {
-    y: () => -contentHeight + window.innerHeight, // Déplacement vertical du contenu
-    ease: "none", // Effet linéaire
-    scrollTrigger: {
-        trigger: ".sth-content", // Le déclencheur de l'animation est désormais .sth-content
-        start: "top top", // Commence au top de la page
-        end: () => `+=${contentHeight}`, // Finit après avoir parcouru toute la hauteur du contenu
-        scrub: 1, // Synchronisation avec le scroll
-        pin: true, // Epingle le contenu pendant le scroll
-    },
+// Mise à jour de la hauteur du contenu lors du redimensionnement de la fenêtre
+window.addEventListener("resize", () => {
+    updateContentHeight();
 });
 
+// Mise à jour initiale de la hauteur
+updateContentHeight();
 
 
 // Récupère les éléments à animer pour le parallaxe
