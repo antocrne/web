@@ -1,5 +1,4 @@
 
-
 // =================
 // GSAP & ScrollTrigger
 // =================
@@ -288,6 +287,226 @@ if (document.body.classList.contains("tt-transition")) {
       
 }
 
+//////////////////////////
+// MODAL NAVIGATION WORK
+//////////////////////////
+var modal = document.getElementById("workModal");
+var modalContent = modal.querySelector(".modal-content");
+var btn = document.getElementById("workBtn");
+
+// Fonction pour désactiver tous les ScrollTrigger actifs
+function disableScrollTriggers() {
+  ScrollTrigger.getAll().forEach(trigger => trigger.disable());
+}
+
+// Fonction pour réactiver tous les ScrollTrigger actifs
+function enableScrollTriggers() {
+  ScrollTrigger.getAll().forEach(trigger => trigger.enable());
+}
+
+// Fonction pour ouvrir la modal avec animation
+function openModal() {
+  disableScrollTriggers(); // Désactive ScrollTrigger
+
+  gsap.set(modal, { visibility: "visible", opacity: 0, }); // Assure que la modal est invisible au départ
+  gsap.to(modal, { opacity: 1, duration: 0.5 }); // Animation d'opacité de la modal
+  gsap.fromTo(modalContent, 
+    { opacity: 0, y: -50 }, 
+    { opacity: 1, y: 0, duration: 0.5 }
+  );
+
+  btn.textContent = "Close"; // Change le texte en "Close"
+  $(btn).addClass("active");
+}
+
+// Fonction pour fermer la modal avec animation
+function closeModal() {
+  btn.textContent = "Work"; // Remet le texte du bouton à "Work"
+  $(btn).removeClass("active");
+  gsap.to(modalContent, {
+    opacity: 0,
+    y: 50,
+    duration: 0.5,
+    
+    onComplete: function() {
+      gsap.to(modal, { opacity: 0, duration: 0.5, onComplete: function() {
+        gsap.set(modal, { visibility: "hidden" }); // Cache la modal après l'animation
+        enableScrollTriggers(); // Réactive ScrollTrigger
+      }});
+    }
+  });
+}
+
+// Gérer le clic sur le bouton (ouvre ou ferme la modal)
+btn.onclick = function() {
+  if (gsap.getProperty(modal, "visibility") === "visible") {
+    closeModal(); // Ferme si déjà ouvert
+  } else {
+    openModal(); // Ouvre sinon
+  }
+}
+
+/*
+// Fermer la modal si l'utilisateur clique en dehors
+window.onclick = function(event) {
+  if (event.target == modal) {
+    closeModal();
+  }
+}
+*/
+
+
+// Récupérer les slides du carousel
+var getSlides = document.querySelectorAll(".carousel .slide");
+
+// Vérifier si des slides existent avant de procéder
+if (getSlides.length > 0) {
+  var slidesData = Array.from(getSlides).map(slide => {
+    return {
+      title: slide.querySelector(".project-title-hidden").textContent,
+      link: slide.querySelector("a").getAttribute("href"), // Récupère le lien <a>
+      image: slide.querySelector("img") ? slide.querySelector("img").src : ""  // Récupère l'URL de l'image
+    };
+  });
+
+  // Sauvegarde des données dans localStorage
+  localStorage.setItem("numberOfSlides", getSlides.length);  // Sauvegarde du nombre de slides
+  localStorage.setItem("slidesData", JSON.stringify(slidesData));  // Sauvegarde des titres, liens et images
+}
+
+// Récupère le nombre de slides et les données (titres, liens, et images) depuis le localStorage
+var numberOfSlides = localStorage.getItem("numberOfSlides");
+var slidesData = JSON.parse(localStorage.getItem("slidesData"));
+
+// Sélectionne le conteneur de la modal où tu veux ajouter les éléments
+var modalContent = document.querySelector(".modal-content");
+
+// Vérifie si les données sont présentes
+if (numberOfSlides && slidesData) {
+  // Crée dynamiquement un élément pour chaque slide dans la modal
+  slidesData.forEach(function(slide, index) {
+    // Crée un conteneur pour chaque élément de la modal
+    var newSlide = document.createElement("div");
+    newSlide.classList.add("modal-slide");
+
+    // Créer l'élément numéro avec format (01), (02), ...
+    var slideNumber = document.createElement("span");
+    slideNumber.classList.add("modal-slide-number");
+    
+    // Formater le numéro pour qu'il soit sous la forme (01), (02), ...
+    var formattedNumber = String(index + 1).padStart(2, '0');  // Ajoute un zéro devant les numéros inférieurs à 10
+    slideNumber.textContent = `(${formattedNumber})`; // Format final avec parenthèses
+
+    // Ajoute le lien et le titre du projet dans le nouvel élément
+    newSlide.innerHTML = `<a href="${slide.link}" class="modalSlide-link">${slide.title}</a>`;
+
+    // Créer le lien "See Project"
+    var seeProjectLink = document.createElement("a");
+    seeProjectLink.classList.add("see-project-link");
+    seeProjectLink.href = slide.link;  // Lien du projet
+    seeProjectLink.textContent = "See Project";  // Texte du lien
+
+    // Créer l'élément pour l'image du projet (initialement cachée)
+    var projectImage = document.createElement("img");
+    projectImage.classList.add("project-image");
+    projectImage.src = slide.image; // Assurer que chaque objet slide contient l'URL de l'image
+    projectImage.style.position = "absolute"; // Image flottante
+    projectImage.style.pointerEvents = "none"; // Pour que l'image ne bloque pas d'autres éléments
+    projectImage.style.visibility = "hidden"; // L'image est cachée au départ
+    projectImage.style.opacity = "0"; // Opacité à 0 pour la rendre invisible
+    projectImage.style.transition = "opacity 0.1s ease-in-out, visibility 0s ease-in-out 0.1s"; // Animation pour l'opacité et visibilité
+
+    // Ajouter l'image à la modal
+    modalContent.appendChild(projectImage);
+
+    // Ajouter un événement mouseover pour afficher l'image lorsque la souris passe sur le titre
+    newSlide.querySelector('.modalSlide-link').addEventListener("mouseover", function() {
+      gsap.to(projectImage, { 
+        opacity: 1,          // Afficher l'image avec une transition d'opacité
+        visibility: "visible", // Rendre l'image visible
+        duration: 0.1       // Durée de l'animation
+      });
+    });
+
+    // Ajouter un événement mouseout pour masquer l'image lorsque la souris quitte
+    newSlide.querySelector('.modalSlide-link').addEventListener("mouseout", function() {
+      gsap.to(projectImage, { 
+        opacity: 0,          // Masquer l'image avec une transition d'opacité
+        visibility: "hidden", // Rendre l'image invisible
+        duration: 0.1       // Durée de l'animation
+      });
+    });
+
+    // Ajouter un événement mousemove pour déplacer l'image avec le curseur
+    newSlide.querySelector('.modalSlide-link').addEventListener("mousemove", function(event) {
+      var mouseX = event.pageX + -100; // Décale légèrement l'image par rapport au curseur
+      var mouseY = event.pageY + -100; // Décale légèrement l'image par rapport au curseur
+      projectImage.style.left = mouseX + "px";
+      projectImage.style.top = mouseY + "px";
+    });
+
+    // Appliquer une animation GSAP pour changer la couleur de fond et du texte au survol
+    newSlide.addEventListener("mouseenter", function() {
+      gsap.to(newSlide, {
+        backgroundColor: "#000",   // Fond noir
+        color: "#fff",             // Texte en blanc
+        duration: 0.3              // Durée de l'animation
+      });
+
+      // Animer le lien à l'intérieur de la slide
+      var link = newSlide.querySelector('.modalSlide-link');
+      if (link) {
+        gsap.to(link, {
+          color: "#fff",            // Texte du lien en blanc
+          duration: 0.3
+        });
+      }
+      // Animer le lien à l'intérieur de la slide
+      var linkProject = newSlide.querySelector('.see-project-link');
+      if (linkProject) {
+        gsap.to(linkProject, {
+          color: "#fff",            // Texte du lien en blanc
+          duration: 0.3
+        });
+      }
+    });
+
+    newSlide.addEventListener("mouseleave", function() {
+      gsap.to(newSlide, {
+        backgroundColor: "",       // Rétablir le fond
+        color: "",                 // Rétablir la couleur du texte
+        duration: 0.3              // Durée de l'animation
+      });
+
+      // Réinitialiser la couleur du lien à l'état initial
+      var link = newSlide.querySelector('.modalSlide-link');
+      if (link) {
+        gsap.to(link, {
+          color: "",                // Réinitialise la couleur du lien
+          duration: 0.3
+        });
+      }
+      // Animer le lien à l'intérieur de la slide
+      var linkProject = newSlide.querySelector('.see-project-link');
+      if (linkProject) {
+        gsap.to(linkProject, {
+          color: "",            // Texte du lien en blanc
+          duration: 0.3
+        });
+      }
+    });
+
+    // Ajouter le numéro avant ou après le titre (selon ta préférence)
+    newSlide.prepend(slideNumber); // Tu peux aussi utiliser `appendChild(slideNumber)` selon où tu veux le placer
+
+    // Ajouter le lien "See Project" à la fin de chaque slide
+    newSlide.appendChild(seeProjectLink);
+
+    // Ajoute ce nouvel élément à la modal
+    modalContent.appendChild(newSlide);
+  });
+}
+
 
 
 // =================
@@ -484,4 +703,6 @@ dummy.select();
 document.execCommand('copy');
 document.body.removeChild(dummy);
 }
+
+
 

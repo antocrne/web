@@ -21,13 +21,23 @@
 
     <nav class="navbar">
         <div class="navbar-left">
-            <a href="index.html" class="logo">Antoine Corniere</a>
+            <a href="index.html" class="logo">ac</a>
         </div>
         <div class="navbar-right">
             <a href="info.html" class="underline">Info</a>
-            <a href="#" class="underline">Work</a>
+            <button id="workBtn" class="underline">Work</button>
         </div>
     </nav>
+
+    <div id="workModal" class="modal">
+        <!-- Contenu de la Modal -->
+        <div class="modal-content">
+        
+        </div>
+    </div>
+
+    
+
     <h1 class="main-title">Seamless Stories</h1>
     <div class="project-title-display"></div>
     <div class="scroll-container">
@@ -35,7 +45,7 @@
             <div class="slide">
                 <a href="#">
                     <div class="image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1531649755688-af9ee584c794?q=80&w=3764&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">  
+                        <img src="https://cabbagekey.com/wp-content/uploads/cabbage-key-island-aerial.jpg" alt="">  
                         <div class="project-title-hidden">Cabbage Key</div>
                     </div>
                 </a>
@@ -43,7 +53,7 @@
             <div class="slide">
                 <a href="#">
                     <div class="image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1597822759184-fefd765faedf?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                        <img src="assets/img/thumbnails/paprec-min.webp" alt="">
                         <div class="project-title-hidden">Transat Paprec</div>
                     </div>
                 </a>
@@ -51,7 +61,7 @@
             <div class="slide">
                 <a href="#">
                     <div class="image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1718792432863-9c947fccfd19?q=80&w=3764&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                        <img src="assets/img/thumbnails/japan-thumbnail.jpg" alt="">
                         <div class="project-title-hidden">Japan through my eyes</div>
                     </div>
                 </a>
@@ -59,7 +69,15 @@
             <div class="slide">
                 <a href="#">
                     <div class="image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1681913783412-745e33b85b60?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                        <img src="assets/img/thumbnails/BrutxGucci.png" alt="">
+                        <div class="project-title-hidden">Brut X Gucci</div>
+                    </div>
+                </a>
+            </div>
+            <div class="slide">
+                <a href="#">
+                    <div class="image-wrapper">
+                        <img src="assets/img/thumbnails/Brut_Reels.jpg" alt="">
                         <div class="project-title-hidden">Brut Reels</div>
                     </div>
                 </a>
@@ -67,7 +85,7 @@
             <div class="slide">
                 <a href="#">
                     <div class="image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1541385767762-a55c33eb0c80?q=80&w=2433&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                        <img src="assets/img/thumbnails/brutxVolkswagen.jpg" alt="">
                         <div class="project-title-hidden">Brut x Volkswagen</div>
                     </div>
                 </a>
@@ -75,7 +93,7 @@
             <div class="slide">
                 <a href="#">
                     <div class="image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1582102150196-29ba8366a0d2?q=80&w=2702&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                        <img src="assets/img/thumbnails/scotland-min.webp" alt="">
                         <div class="project-title-hidden">Scottish Highlands</div>
                     </div>
                 </a>
@@ -119,6 +137,7 @@
     } else {
       console.log("imagesLoaded n'est pas défini !");
     }
+
 
   
 </script>
