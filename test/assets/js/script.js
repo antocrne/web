@@ -314,7 +314,7 @@ gsap.to(scrollableSection, {
         start: "top top", // Commence au top de la page
         end: () => `+=${contentHeight}`, // Finit après avoir parcouru toute la hauteur du contenu
         scrub: 1, // Synchronisation avec le scroll
-        pin: true, // Epingle le contenu pendant le scroll
+        pin: false, // Epingle le contenu pendant le scroll
     },
 });
 
