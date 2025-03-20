@@ -302,10 +302,7 @@ const scrollableSection = document.querySelector(".scrollable-content");
 // Calcul de la hauteur totale du contenu à animer
 const contentHeight = scrollableSection.scrollHeight;
 
-// Vérifie si l'écran est en mode mobile
-const isMobile = window.innerWidth <= 768;
-
-// Animation de scroll (restera active sur mobile et desktop)
+// Animation de scroll
 gsap.to(scrollableSection, {
     y: () => -contentHeight + window.innerHeight, // Déplacement vertical du contenu
     ease: "none", // Effet linéaire
@@ -314,51 +311,50 @@ gsap.to(scrollableSection, {
         start: "top top", // Commence au top de la page
         end: () => `+=${contentHeight}`, // Finit après avoir parcouru toute la hauteur du contenu
         scrub: 1, // Synchronisation avec le scroll
-        pin: false, // Epingle le contenu pendant le scroll
+        pin: true, // Epingle le contenu pendant le scroll
     },
 });
 
-// Si l'on est sur un écran mobile, on désactive les animations parallaxe
-if (!isMobile) {
-    // Récupère les éléments à animer pour le parallaxe
-    const imageContainer = document.querySelector(".info-image-container");
-    const titleContent = document.querySelector(".title-content");
-    const textContent = document.querySelector(".info-txt");
 
-    // Animation Parallaxe
-    gsap.to(imageContainer, {
-        y: -80, // Déplacement vers le haut pour l'effet parallaxe
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".scrollable-content", // Le scroll se déclenche ici
-            start: "top top",
-            end: "bottom top",
-            scrub: 1, // Synchronisation avec le scroll
-        },
-    });
+// Récupère les éléments à animer pour le parallaxe
+const imageContainer = document.querySelector(".info-image-container");
+const titleContent = document.querySelector(".title-content");
+const textContent = document.querySelector(".info-txt");
 
-    gsap.to(titleContent, {
-        y: 70, // Légère translation vers le bas
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".scrollable-content",
-            start: "top top",
-            end: "bottom top",
-            scrub: 1,
-        },
-    });
+// Animation Parallaxe
+gsap.to(imageContainer, {
+    y: -80, // Déplacement vers le haut pour l'effet parallaxe
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".scrollable-content", // Le scroll se déclenche ici
+        start: "top top",
+        end: "bottom top",
+        scrub: 1, // Synchronisation avec le scroll
+    },
+});
 
-    gsap.to(textContent, {
-        y: -30, // Déplacement plus subtil vers le haut
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".scrollable-content",
-            start: "top top",
-            end: "bottom top",
-            scrub: 1,
-        },
-    });
-}
+gsap.to(titleContent, {
+    y: 70, // Légère translation vers le bas
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".scrollable-content",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
+    },
+});
+
+gsap.to(textContent, {
+    y: -30, // Déplacement plus subtil vers le haut
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".scrollable-content",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
+    },
+});
+
 
 
 if (document.body.classList.contains("tt-transition")) {
