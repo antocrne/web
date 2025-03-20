@@ -552,6 +552,11 @@ body {
       /* --------- INFO CSS RESPONSIVE ---------*/
       /*----------------------------------------*/
 
+      .sth-content {
+        position: relative;
+        overflow: hidden;
+      }
+
       .inner-content {
         padding-top: 5%;
       }
