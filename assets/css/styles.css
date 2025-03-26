@@ -494,7 +494,7 @@ padding-bottom: 15%;
 .info-txt {
 width: 50%;
 margin: auto;
-font-size: 18px;
+font-size: 16px;
 }
 
 .info-link {
@@ -503,7 +503,7 @@ margin: auto;
 display: flex;
 align-items: center;
 justify-content: space-between;
-font-size: 18px;
+font-size: 16px;
 }
 
 .socials-link {
