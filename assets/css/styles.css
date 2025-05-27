@@ -618,6 +618,74 @@ margin: 1% 0;
 }
 
 
+/* ------------ PHOTOS ARCHIVES PAGE CSS ----------- */
+
+.photo-inner {
+  width: 50%;
+  margin: auto;
+}
+.photo-header {
+  padding-top: 20vh;
+}
+
+.photo-title {
+font-size: 2.5vw;
+font-family: ivypresto-display, serif;
+font-weight: 100;
+font-style: italic;
+text-align: center;
+}
+
+.photo-info p {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.photo-info a {
+  margin-left: 5px;
+}
+
+
+.gallery {
+  padding-top: 5vh;
+  pointer-events: all;
+}
+.gallery-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  
+}
+
+.portrait-img {
+  width: 48.5%;
+  display: flex;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  
+}
+
+.portrait-img img {
+  width: 100%;
+}
+
+.landscape-img {
+  width: 100%;
+  display: flex;
+  margin: 1%;
+  
+}
+
+.landscape-img img {
+  width: 100%;
+  height: 55vh;
+  object-fit: cover;
+}
+
+
+
 /* ------------ ERROR 404 PAGE CSS ----------- */
 .error-container {
   width: 100%;
