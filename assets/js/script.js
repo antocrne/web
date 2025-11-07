@@ -671,7 +671,7 @@ $(document).ready(function() {
 $('a[href^=mailto]').addClass('mailto-link');
 
 var mailto = $('.mailto-link');
-var messageCopy = 'antoinecorniere.pro@gmail.com';
+var messageCopy = 'hello@antoinecorniere.com';
 var messageSuccess = 'Email address copied to clipboard';
 
 mailto.append('<span class="mailto-message"></span>');
