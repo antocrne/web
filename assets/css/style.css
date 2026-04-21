@@ -920,3 +920,11 @@ ERROR 404 CSS
     }
     
 }
+
+@media (max-width: 416px) {
+    /* Typographie mobile */
+    .title-item h2 a {
+        font-size: 42px;
+        letter-spacing: -1.5px;
+    }
+}
