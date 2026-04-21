@@ -41,6 +41,13 @@ if (titleItems.length > 0) {
                 item.classList.toggle('active', i === index);
             });
 
+            // ✅ AJOUT : met à jour l'image de fond selon le data-bg du titre actif
+            const bgId = titleItems[index].getAttribute('data-bg');
+            backgrounds.forEach(bg => {
+                bg.classList.toggle('active', bg.id === bgId);
+                bg.classList.toggle('inactive', bg.id !== bgId);
+            });
+
             pagination.querySelector('.current').textContent = currentSlide + 1;
         }
 
@@ -88,9 +95,9 @@ if (titleItems.length > 0) {
         }, 250);
     });
 }
-
+/*
 // ======================================================
-// 2. PLAYER YOUTUBE (Projets)
+// 2. PLAYER YOUTUBE (Projets) CUSTOM
 // ======================================================
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
@@ -349,4 +356,78 @@ if (isMobileDevice && videoPreview) {
         
         player.playVideo();
     });
+}
+*/
+
+
+// ═══════════════════════════════════════════════════════
+// PLAYER YOUTUBE SIMPLE AVEC PREVIEW
+// ═══════════════════════════════════════════════════════
+
+// Vérifier si on est sur une page avec vidéo
+const videoContainer = document.getElementById('youtube-player');
+
+if (videoContainer) {
+    // Charger l'API YouTube
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    let player;
+    let isPlayerReady = false;
+
+    const videoPreview = document.querySelector(".video-preview");
+    const videoId = videoContainer.getAttribute('data-video-id');
+
+    // Initialiser le player YouTube
+    window.onYouTubeIframeAPIReady = function() {
+        if (!videoId) {
+            console.error('Aucun ID vidéo trouvé !');
+            return;
+        }
+        
+        player = new YT.Player('youtube-player', {
+            height: '100%',
+            width: '100%',
+            videoId: videoId,
+            playerVars: {
+                'controls': 1,          // Contrôles YouTube natifs
+                'modestbranding': 1,    // Réduit le branding YouTube
+                'rel': 0,               // Pas de vidéos suggérées
+                'showinfo': 0,          // Cache les infos
+                'playsinline': 1,       // Lecture inline sur mobile
+                'fs': 1                 // Fullscreen activé
+            },
+            events: {
+                'onReady': onPlayerReady
+            }
+        });
+    }
+
+    function onPlayerReady() {
+        isPlayerReady = true;
+        console.log('Player YouTube prêt avec la vidéo:', videoId);
+    }
+
+    // Gestion du clic sur la preview
+    if (videoPreview) {
+        videoPreview.addEventListener('click', () => {
+            if (!isPlayerReady) {
+                console.log('Player pas encore prêt...');
+                return;
+            }
+            
+            // Cache la preview avec fondu
+            videoPreview.classList.add('hidden');
+            
+            // Retire complètement après l'animation
+            setTimeout(() => {
+                videoPreview.style.display = 'none';
+            }, 1500);
+            
+            // Lance la vidéo
+            player.playVideo();
+        });
+    }
 }

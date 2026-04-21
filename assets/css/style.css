@@ -783,22 +783,19 @@ ERROR 404 CSS
         transform: scale(1);
     }
 
-    /* Images de fond pour chaque section */
+    /* Images de fond pour chaque section
     .title-item[data-bg="bg-norway"]::before {
         background-image: url('../img/bg/norway.avif');
     }
 
-    .title-item[data-bg="bg-run"]::before {
-        background-image: url('../img/bg/run.avif');
-    }
 
     .title-item[data-bg="bg-canon"]::before {
         background-image: url('../img/bg/block2_image.jpg');
     }
 
-    .title-item[data-bg="bg-archives"]::before {
-        background-image: url('../img/bg/desert.avif');
-    }
+    
+    
+    */
 
     /* Cacher les backgrounds fixes sur mobile
     .background {
