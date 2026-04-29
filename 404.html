@@ -22,18 +22,21 @@
 <body>
  
  <!-- Navigation -->
- <nav class="white-nav">
-        <a href="../index.html">Work</a>
+<nav class="white-nav">
+        <a href="../index.html" data-i18n="nav_work">Work</a>
          <!-- Logo -->
         <div class="logo">
             <a href="../index.html"><img src="../assets/img/logo_V2.png" alt=""></a>
         </div>
-        <a href="info.html">Info</a>
-</nav>
+        <div class="nav-right">
+            <a href="info.html" data-i18n="nav_info">Info</a>
+            <button class="lang-switcher" id="lang-switcher">FR</button>
+        </div>
+    </nav>
 <div class="error-container">
             <div class="error-elements">
-                <p>This page does not exist.</p>
-                <a href="/">Return to home page</a>
+                <p data-i18n="error">This page does not exist.</p>
+                <a href="./index.html" data-i18n="error_back">Return to home page</a>
             </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

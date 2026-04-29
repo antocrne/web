@@ -74,6 +74,23 @@ nav {
     z-index: 100;
 }
 
+/* ✅ Les deux côtés prennent la même place */
+nav > a:first-child {
+    flex: 1;
+}
+
+.nav-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* colle le contenu à droite */
+    gap: 30px;
+}
+
+.logo {
+    flex-shrink: 0; /* empêche le logo de se réduire */
+}
+
 nav a {
     color: #FAF9F6;
     text-decoration: none;
@@ -97,6 +114,47 @@ nav a {
 
 nav a:hover {
     opacity: 0.7;
+}
+
+
+
+ 
+/* Bouton switcher de langue */
+.lang-switcher {
+    background: none;
+    border: none;
+    color: #FAF9F6;
+    font-family: "owners-text", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: opacity 0.3s, border-color 0.3s;
+    border-radius: 2px;
+}
+ 
+.lang-switcher:hover {
+    opacity: 0.7;
+}
+ 
+/* Sur les pages blanches (white-nav), le bouton s'adapte */
+.white-nav .lang-switcher {
+    color: #000;
+    border-color: rgba(0, 0, 0, 0.3);
+}
+ 
+/* Mobile */
+@media (max-width: 768px) {
+    .nav-right {
+        gap: 20px;
+    }
+ 
+    .lang-switcher {
+        font-size: 16px;
+        padding: 3px 8px;
+    }
 }
 
 
@@ -473,6 +531,7 @@ color: #FAF9F6;
 
 .img-work img {
     width: 100%;
+    pointer-events: none;
 }
 
 .w-text-content {

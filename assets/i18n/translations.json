@@ -1,0 +1,18 @@
+{
+    "fr": {
+        "nav_work": "Travaux",
+        "nav_info": "Info",
+        "project_norway": "Norvège — Sony FX2",
+        "project_canon": "Camara — Canon R6 Mark III",
+        "project_japan": "Le Japon à travers mes yeux",
+        "project_archives": "Archives"
+    },
+    "en": {
+        "nav_work": "Work",
+        "nav_info": "Info",
+        "project_norway": "Norway — Sony FX2",
+        "project_canon": "Camara — Canon R6 Mark III",
+        "project_japan": "Japan Through My Eyes",
+        "project_archives": "Archives"
+    }
+}
