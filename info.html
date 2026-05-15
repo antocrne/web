@@ -13,20 +13,18 @@
     <meta itemprop="url" content="https://antoinecorniere.com">
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antoine Cornière</title>
-    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
-    <link rel="stylesheet" href="https://use.typekit.net/xdp4rue.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    <title>Antoine Cornière – Info</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
  
  <!-- Navigation -->
 <nav class="white-nav">
-        <a href="../index.html" data-i18n="nav_work">Work</a>
+        <a href="index.html" data-i18n="nav_work">Work</a>
          <!-- Logo -->
         <div class="logo">
-            <a href="../index.html"><img src="../assets/img/logo_V2.png" alt=""></a>
+            <a href="index.html"><img src="assets/img/logo_V2_dark.png" alt=""></a>
         </div>
         <div class="nav-right">
             <a href="info.html" data-i18n="nav_info">Info</a>
@@ -53,60 +51,37 @@
         <span style="font-size: 14px;">Photo by <a href="https://www.stevenrsl.eu/" target="_blank" class="ext-link" >Steven Roussel</a></span>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="../assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
 <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const mailtoLink = document.querySelector('a[href^=mailto]');
+    if (!mailtoLink) return;
 
+    const email = mailtoLink.getAttribute('href').replace('mailto:', '');
+    const messageCopy = email;
+    const messageSuccess = 'Email address copied to clipboard';
 
-// ═══════════════════════════════════════════════════════
-// EMAIL COPY TO CLIPBOARD
-// ═══════════════════════════════════════════════════════
+    const span = document.createElement('span');
+    span.className = 'mailto-message';
+    span.textContent = messageCopy;
+    mailtoLink.appendChild(span);
 
-
-
-$(document).ready(function() {
-
-    // Add class to mailto link
-    // Needed to separate the disabling of the default action AND copy email to clipboard
-    $('a[href^=mailto]').addClass('mailto-link');
-
-    var mailto = $('.mailto-link');
-    var messageCopy = 'hello@antoinecorniere.com';
-    var messageSuccess = 'Email address copied to clipboard';
-
-    mailto.append('<span class="mailto-message"></span>');
-    $('.mailto-message').append(messageCopy);
-
-    // Disable opening your email client. yuk.
-    $('a[href^=mailto]').click(function() {
-        return false; 
-    })
-
-    // On click, get href and remove 'mailto:' from value
-    // Store email address in a variable.
-    mailto.click(function() {
-        var href = $(this).attr('href');
-        var email = href.replace('mailto:', '');
-        copyToClipboard(email);
-        $('.mailto-message').empty().append(messageSuccess);
-        setTimeout(function() {
-            $('.mailto-message').empty().append(messageCopy);}, 1500);
+    mailtoLink.addEventListener('click', async (e) => {
+        e.preventDefault();
+        try {
+            await navigator.clipboard.writeText(email);
+        } catch {
+            const dummy = document.createElement('input');
+            document.body.appendChild(dummy);
+            dummy.value = email;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+        }
+        span.textContent = messageSuccess;
+        setTimeout(() => { span.textContent = messageCopy; }, 1500);
     });
-
 });
-
-
-// Copies the email variable to clipboard
-function copyToClipboard(text) {
-    var dummy = document.createElement("input");
-    document.body.appendChild(dummy);
-    dummy.setAttribute('value', text);
-    dummy.select();
-    document.execCommand('copy');
-    document.body.removeChild(dummy);
-}
-
-
 </script>
 </body>
 </html> 

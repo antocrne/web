@@ -1,3 +1,24 @@
+/* ============================
+   DESIGN TOKENS
+   ============================ */
+@import url("https://use.typekit.net/xdp4rue.css");
+:root {
+    --linen: #F7F2EA;
+    --cream: #EDE6D8;
+    --sand: #C9BAA4;
+    --stone: #8C7D6A;
+    --charcoal: #2A2420;
+    --terracotta: #BC6040;
+    --terra-light: #F2E4DA;
+    --aegean: #1E3D5C;
+    --aegean-mid: #4A7A9B;
+    --aegean-light: #D6E4EF;
+    --olive: #6E7B5A;
+    --gold: #B8965A;
+    --olive-light: #E2E7D8;
+    --gold-light: #F5ECD8;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,10 +28,10 @@
 body {
     font-family: "owners-text", sans-serif;
     font-weight: 400;
-    font-style: normal;
     height: 100dvh;
     position: relative;
-    background-color: #FAF9F6;
+    background-color: var(--linen);
+    color: var(--charcoal);
 }
 
 .home {
@@ -18,12 +39,21 @@ body {
 }
 
 .ext-link {
-    color: #000;
+    color: var(--aegean-mid);
     text-decoration: underline 1px;
-   text-underline-offset: 5px;
+    text-underline-offset: 5px;
+    transition: color 0.3s, text-decoration-color 0.3s;
 }
 
-/* Images de fond */
+.ext-link:hover {
+    color: var(--gold);
+    text-decoration-color: var(--gold);
+}
+
+
+/* ============================
+   BACKGROUND IMAGES
+   ============================ */
 .background {
     position: fixed;
     top: 0;
@@ -36,8 +66,8 @@ body {
     z-index: 1;
     pointer-events: all;
     cursor: pointer;
+     filter: brightness(90%);
 }
-
 
 .background.active {
     opacity: 1;
@@ -46,7 +76,6 @@ body {
 .background.inactive {
     opacity: 0;
 }
-
 
 .overlay {
     display: none;
@@ -61,7 +90,10 @@ body {
     pointer-events: none;
 }
 
-/* Navigation */
+
+/* ============================
+   NAVIGATION
+   ============================ */
 nav {
     position: fixed;
     top: 0;
@@ -70,11 +102,10 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 60px;
+    padding: 28px 48px;
     z-index: 100;
 }
 
-/* ✅ Les deux côtés prennent la même place */
 nav > a:first-child {
     flex: 1;
 }
@@ -83,93 +114,70 @@ nav > a:first-child {
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* colle le contenu à droite */
-    gap: 30px;
+    justify-content: flex-end;
+    gap: 28px;
 }
 
 .logo {
-    flex-shrink: 0; /* empêche le logo de se réduire */
+    flex-shrink: 0;
 }
 
 nav a {
-    color: #FAF9F6;
+    color: rgba(255, 255, 255, 0.75);
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    transition: opacity 0.3s;
+    font-size: 13px;
+    font-weight: 400;
     text-transform: uppercase;
-
-    
+    transition: opacity 0.3s;
+    letter-spacing: 1px;
 }
 
 .white-nav {
     position: relative;
 }
 
-.white-nav a { 
-    color: #000;
-    
+.white-nav a {
+    color: var(--stone);
 }
 
 nav a:hover {
     opacity: 0.7;
 }
 
-
-
- 
-/* Bouton switcher de langue */
 .lang-switcher {
     background: none;
     border: none;
-    color: #FAF9F6;
+    color: rgba(255, 255, 255, 0.75);
     font-family: "owners-text", sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1px;
+    font-size: 13px;
+    font-weight: 400;
     text-transform: uppercase;
-    padding: 4px 10px;
+    letter-spacing: 1px;
+    padding: 4px 8px;
     cursor: pointer;
-    transition: opacity 0.3s, border-color 0.3s;
-    border-radius: 2px;
+    transition: opacity 0.3s;
+    
 }
- 
+
 .lang-switcher:hover {
     opacity: 0.7;
 }
- 
-/* Sur les pages blanches (white-nav), le bouton s'adapte */
+
 .white-nav .lang-switcher {
-    color: #000;
-    border-color: rgba(0, 0, 0, 0.3);
+    color: var(--stone);
 }
- 
-/* Mobile */
-@media (max-width: 768px) {
-    .nav-right {
-        gap: 20px;
-    }
- 
-    .lang-switcher {
-        font-size: 16px;
-        padding: 3px 8px;
-    }
-}
-
-
-
 
 .logo img {
     width: 45px;
     height: auto;
 }
 
-.white-nav .logo img {
-    filter: invert(1);
-}
 
-/* Conteneur des titres */
+
+
+/* ============================
+   HERO — PROJECT LIST
+   ============================ */
 .content {
     position: absolute;
     bottom: 0;
@@ -177,63 +185,78 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-left: 60px;
+    padding-left: 48px;
     padding-bottom: 40px;
+   
 }
 
 .title-item {
-    margin: 10px 0 0;
+    margin: 4px 0 0;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
-    align-items: flex-start;
-    gap: 5px;
-    letter-spacing: -2px;
+    align-items: baseline;
+    gap: 12px;
 }
 
-
+/* Inactive titles */
 .title-item h2 a {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 62px;
-    font-weight: 300;
+    color: rgba(255, 255, 255, 0.38);
+    font-weight: 500;
+    font-size: 45px;
     margin: 0;
     transition: all 0.3s ease;
-    font-weight: 500;
     text-decoration: none;
 }
 
+/* Active title */
+.title-item.active h2 a {
+    color: #ffffff;
+    font-size: 55px;
+    font-weight: 500;
+    
+}
+
+.title-item:hover h2 a {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.title-item.active:hover h2 a {
+    color: #ffffff;
+}
+
+/* Year labels — inactive at 50% terracotta */
 .title-item .year-label {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 16px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 18px;
     font-weight: 300;
+    letter-spacing: 0.15em;
     margin: 0;
     transition: all 0.3s ease;
-    position: relative;
-    top: 0px;
-    letter-spacing: 0px;
+    align-self: start;
 }
 
-.title-item:hover h1,
-.title-item:hover h2 a,
-.title-item:hover .year-label {
-    color: #FAF9F6;
-}
-
-.title-item.active #top-title,
-.title-item.active h2 a {
-    color: #FAF9F6;
-}
-
+/* Active year — full terracotta */
 .title-item.active .year-label {
-color: #FAF9F6;
+    color: #ffffff;
 }
 
-/* Années */
+.title-item:hover .year-label {
+    color: #ffffff;
+}
+
+.title-item.active:hover .year-label {
+    color: #ffffff;
+}
+
+
+/* ============================
+   YEARS SIDEBAR / PAGINATION
+   ============================ */
 .years {
     display: none;
 }
 
-/* Pagination mobile */
 .pagination {
     display: none;
     position: fixed;
@@ -241,32 +264,30 @@ color: #FAF9F6;
     bottom: 5%;
     transform: translateY(-50%);
     z-index: 100;
-    color: #FAF9F6;
-    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
     font-weight: 300;
-    letter-spacing: 1px;
+    letter-spacing: 0.15em;
     flex-direction: column;
     align-items: center;
     gap: 10px;
 }
 
 .pagination .current {
-    font-size: 14px;
+    font-size: 11px;
 }
 
 .pagination .separator {
-    width: 1px;
+    width: 0.5px;
     height: 50px;
-    background: #FAF9F6;
+    background: rgba(255, 255, 255, 0.4);
 }
 
 
-
-
-
-
-
-/* Work Project */
+/* ============================
+   WORK PROJECT PAGES
+   ============================ */
 .work-content {
     width: 100%;
     display: flex;
@@ -276,7 +297,7 @@ color: #FAF9F6;
 .video-controls, .options {
     display: flex;
     align-items: center;
-    justify-content: center;   
+    justify-content: center;
 }
 
 .video-controls .options:first-child {
@@ -300,7 +321,8 @@ color: #FAF9F6;
     width: 100%;
     height: auto;
     position: relative;
-    overflow: hidden;  
+    overflow: hidden;
+    border-radius: 3px;
 }
 
 .text-container {
@@ -308,9 +330,13 @@ color: #FAF9F6;
     margin: 0px;
     position: relative;
 }
+
 .pt {
     padding-top: 56.25%;
+    
+    overflow: hidden;
 }
+
 .player {
     height: 100%;
     left: 0;
@@ -320,7 +346,7 @@ color: #FAF9F6;
 }
 
 .player iframe {
-    border-radius: inherit;
+    
     height: 100%;
     margin: auto;
     overflow: hidden;
@@ -328,11 +354,12 @@ color: #FAF9F6;
     width: 100%;
     aspect-ratio: 16/9;
 }
-.container.fullscreen{
-  max-width: 100%;
-  width: 100%;
-  height: 100vh;
-  border-radius: 0px;
+
+.container.fullscreen {
+    max-width: 100%;
+    width: 100%;
+    height: 100vh;
+    border-radius: 0px;
 }
 
 .wrapper {
@@ -343,12 +370,13 @@ color: #FAF9F6;
     opacity: 0;
     bottom: -15px;
     transition: all 0.1s ease;
+    
 }
 
-.container.show-controls .wrapper{
-  opacity: 1;
-  bottom: 0;
-  transition: all 0.2s ease;
+.container.show-controls .wrapper {
+    opacity: 1;
+    bottom: 0;
+    transition: all 0.2s ease;
 }
 
 .wrapper::before {
@@ -358,10 +386,8 @@ color: #FAF9F6;
     z-index: -1;
     position: absolute;
     height: calc(100% + 35px);
-    background: #000;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
 }
-
 
 .video-shield {
     position: absolute;
@@ -370,7 +396,7 @@ color: #FAF9F6;
     width: 100%;
     height: 100%;
     z-index: 0;
-    display: none; 
+    display: none;
     background: transparent;
     cursor: pointer;
 }
@@ -379,7 +405,6 @@ color: #FAF9F6;
     display: block;
 }
 
-/* Miniature preview avec transition */
 .video-preview {
     position: absolute;
     top: 0;
@@ -392,19 +417,17 @@ color: #FAF9F6;
     align-items: center;
     justify-content: center;
     background: #000;
-    opacity: 1; /* ← Ajout */
-    transition: opacity 1.5s ease; /* ← Ajout */
+    opacity: 1;
+    transition: opacity 1.5s ease;
+    
 }
 
-/* Masquer la preview avec fondu */
 .video-preview.hidden {
-    opacity: 0; /* ← Au lieu de display: none */
-    pointer-events: none; /* ← Empêche de cliquer pendant le fondu */
-    background: #000; /* ← Garde le fond noir pendant le fondu */
-
+    opacity: 0;
+    pointer-events: none;
+    background: #000;
 }
 
-/* L'image miniature */
 .video-preview img {
     position: absolute;
     top: 0;
@@ -414,7 +437,6 @@ color: #FAF9F6;
     object-fit: cover;
 }
 
-/* Le bouton play custom */
 .play-button-preview {
     position: relative;
     z-index: 11;
@@ -429,16 +451,12 @@ color: #FAF9F6;
 .play-button-preview i {
     font-size: 32px;
     color: #FAF9F6;
-    margin-left: 5px; /* Ajustement visuel pour centrer le triangle */
+    margin-left: 5px;
 }
 
-/* Effet hover sur la preview */
 .video-preview:hover .play-button-preview {
     transform: scale(1.1);
 }
-
-
-
 
 .video-controls {
     padding: 5px 20px 10px;
@@ -474,15 +492,14 @@ color: #FAF9F6;
     margin-left: 10px;
 }
 
-.current-time {   
+.current-time {
     padding: 10px;
 }
-
 
 .video-timeline .progress-area {
     height: 3px;
     position: relative;
-    background: #faf9f662;
+    background: rgba(250, 249, 246, 0.38);
 }
 
 .progress-area span {
@@ -490,9 +507,8 @@ color: #FAF9F6;
     left: 50%;
     top: -25px;
     transform: translateX(-50%);
-    font-size: 12px;
+    font-size: 11px;
     color: #FAF9F6;
-  
 }
 
 .progress-area .progress-bar {
@@ -518,11 +534,10 @@ color: #FAF9F6;
     display: none;
 }
 
-.video-timeline:hover span, 
+.video-timeline:hover span,
 .video-timeline:hover .progress-bar::before {
     display: block;
 }
-
 
 .img-work {
     width: 100%;
@@ -532,6 +547,7 @@ color: #FAF9F6;
 .img-work img {
     width: 100%;
     pointer-events: none;
+    border-radius: 3px;
 }
 
 .w-text-content {
@@ -539,28 +555,55 @@ color: #FAF9F6;
     margin: 60px;
 }
 
-
 #work-title {
-    text-transform: uppercase;
+    font-family: "miller-banner-condensed", sans-serif;
     font-size: 3.5rem;
-    font-weight: 600;
-    margin-bottom: 50px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--charcoal);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    margin-bottom: 40px;
 }
 
 .w-p {
-    color: #000;
-    margin-bottom: 20px;
+    color: var(--stone);
+    display: flex;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.85;
+    margin-bottom: 16px;
 }
 
-.w-sp {    
-    color: #989898;
+.w-sp {
+    
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    font-size: 14px;
-    margin-right: 15px;
+    color: var(--terracotta);
+    margin-right: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.w-sp::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 0.5px;
+    background: var(--terracotta);
+    flex-shrink: 0;
 }
 
 .w-txt {
-    margin-top: 50px;
+    margin-top: 48px;
+    
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--stone);
 }
 
 .img-portrait {
@@ -576,36 +619,33 @@ color: #FAF9F6;
 }
 
 
-
-
-
+/* ============================
+   ARCHIVES
+   ============================ */
 .archive-wrapper {
     padding: 20px 60px;
     max-width: 3000px;
-    /*--- max-width: 1600px; --*/
     margin: 5% auto;
 }
 
 .archive-header h1 {
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-family: "miller-banner-condensed", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--charcoal);
+    letter-spacing: -0.01em;
     margin-bottom: 40px;
-    font-weight: 500;
 }
 
-/* --- Gallery Grid (Masonry Effect) --- */
 .gallery-grid {
-    /* On définit 4 colonnes */
     column-count: 4;
-    /* L'espace horizontal entre les colonnes */
     column-gap: 20px;
 }
 
 .gallery-item {
-    /* Empêche l'image de se scinder entre deux colonnes */
     break-inside: avoid;
-    margin-bottom: 20px; /* L'espace vertical */
+    margin-bottom: 20px;
     width: 100%;
 }
 
@@ -613,21 +653,18 @@ color: #FAF9F6;
     width: 100%;
     height: auto;
     display: block;
-    /* Optionnel : adoucir le rendu */
     transition: opacity 0.4s ease;
     pointer-events: none;
+    border-radius: 3px;
 }
 
 
-/*
---------------------------
-INFO CSS
---------------------------
-*/
-
+/* ============================
+   INFO PAGE
+   ============================ */
 .info-container {
     margin: auto;
-    margin-top: 60px;
+    margin-top: 80px;
     display: flex;
     align-items: center;
     width: 80%;
@@ -645,15 +682,31 @@ INFO CSS
     width: 100%;
     height: 70vh;
     object-fit: cover;
+    border-radius: 3px;
+}
+.info-picture span {
+    color: var(--stone);
+    font-weight: 300;
 }
 
 .info-txt h2 {
-    font-size: 14rem;
+    font-family: "miller-banner-condensed", sans-serif;
+    font-size: 5.5rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--charcoal);
     margin-top: 0;
+    line-height: 2;
+    letter-spacing: -0.03em;
 }
 
 .info-txt p {
     width: 90%;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--stone);
 }
 
 .social-info {
@@ -664,32 +717,43 @@ INFO CSS
 }
 
 .social-info a {
-    color: #000;
+    color: var(--stone);
     text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    transition: color 0.3s;
+}
+
+.social-info a:hover {
+    color: var(--aegean-mid);
 }
 
 .socials a {
     margin-left: 10px;
+    color: var(--stone);
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    transition: color 0.3s;
 }
 
 .socials a:hover {
-    opacity: 0.7;
-    transition: 0.3s;
+    color: var(--aegean-mid);
 }
 
 #email:hover {
-    opacity: 0.7;
+    color: var(--aegean-mid);
     transition: 0.3s;
 }
 
 
-
-/*
---------------------------
-ERROR 404 CSS
---------------------------
-*/
-
+/* ============================
+   ERROR 404
+   ============================ */
 .error-container {
     display: flex;
     justify-content: center;
@@ -701,32 +765,40 @@ ERROR 404 CSS
 }
 
 .error-elements p {
-    font-size: 3rem;
-    font-weight: 600;
+    font-family: "miller-banner-condensed", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--charcoal);
     margin-bottom: 2%;
 }
 
 .error-elements a {
-    font-size: 1.5rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
     text-decoration: underline;
     text-underline-offset: 5px;
-    color: #000;
-    
+    color: var(--stone);
+    transition: color 0.3s;
+}
 
+.error-elements a:hover {
+    color: var(--aegean-mid);
 }
 
 
-
-/* --- Responsiveness --- */
-
-/* Tablettes larges / Petits laptops */
+/* ============================
+   RESPONSIVE
+   ============================ */
 @media (max-width: 1100px) {
     .gallery-grid {
         column-count: 3;
     }
 }
 
-/* Tablettes portrait */
 @media (max-width: 800px) {
     .gallery-grid {
         column-count: 1;
@@ -740,54 +812,28 @@ ERROR 404 CSS
     }
 }
 
-/* Mobiles */
-@media (max-width: 500px) {
-    .gallery-grid {
-        column-count: 1;
-    }
-
-    .archive-wrapper {
-        padding: 20px 30px;
-    }
-}
-
-
-@media (max-width: 1024px) {
-    
-}
-
-/* RESPONSIVE MOBILE */
 @media (max-width: 768px) {
-    /* Activer la pagination sur mobile */
     .pagination {
         display: flex;
     }
 
-    /* Navigation */
     nav {
-        padding: 30px 30px;
-    }
-
-    nav a {
-        font-size: 16px;
+        padding: 24px 24px;
     }
 
     .logo img {
         width: 40px;
     }
 
-    /* Désactiver le scroll classique */
     .home {
         overflow: hidden;
         height: 100vh;
     }
 
-    /* Overlay adapté */
     .overlay {
         background: #000;
     }
 
-    /* Conteneur */
     .content {
         height: 100vh;
         width: 100%;
@@ -797,7 +843,6 @@ ERROR 404 CSS
         overflow: hidden;
     }
 
-    /* Chaque titre devient une section full-screen absolue */
     .title-item {
         position: absolute;
         top: 0;
@@ -808,21 +853,19 @@ ERROR 404 CSS
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        padding: 0 30px 100px 30px;
-        gap: 10px;
+        padding: 0 70px 140px 24px;
+        gap: 8px;
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.5s ease;
     }
 
-    /* Slide active */
     .title-item.active-slide {
         opacity: 1;
         pointer-events: auto;
         z-index: 2;
     }
 
-    /* Background pour chaque section avec effet zoom */
     .title-item::before {
         content: '';
         position: absolute;
@@ -837,54 +880,33 @@ ERROR 404 CSS
         transform: scale(1.02);
     }
 
-    /* Zoom out quand la slide devient active */
     .title-item.active-slide::before {
         transform: scale(1);
     }
 
-    /* Images de fond pour chaque section
-    .title-item[data-bg="bg-norway"]::before {
-        background-image: url('../img/bg/norway.avif');
+    /* Active slide on mobile — Cormorant */
+    .title-item.active-slide h2 a {
+        font-size: 58px;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+        color: #ffffff;
     }
 
-
-    .title-item[data-bg="bg-canon"]::before {
-        background-image: url('../img/bg/block2_image.jpg');
-    }
-
-    
-    
-    */
-
-    /* Cacher les backgrounds fixes sur mobile
-    .background {
-        display: none;
-    }
-    */
-    
-
-    /* Typographie mobile */
-    .title-item h2 {
-        font-size: 36px;
-        letter-spacing: -1.5px;
+    /* Inactive on mobile */
+    .title-item h2 a {
+        font-size: 32px;
+        color: rgba(255, 255, 255, 0.75);
     }
 
     .title-item .year-label {
-        font-size: 14px;
+        font-size: 9px;
     }
 
-    /* Désactiver hover sur mobile */
     .title-item:hover h2,
     .title-item:hover .year-label {
         transform: none;
     }
-
-    /* Titres toujours blancs sur mobile */
-    .title-item h2,
-    .title-item .year-label {
-        color: #FAF9F6;
-    }
-
 
     /* Work Project */
     .work-content {
@@ -898,22 +920,21 @@ ERROR 404 CSS
     }
 
     .w-text-content {
-        position:relative;
+        position: relative;
         margin: 0px;
     }
 
     #work-title {
-        font-size: 2rem;
-        margin-bottom: 30px;
+        font-size: 2.5rem;
+        margin-bottom: 28px;
     }
 
     .w-p {
-        color: #000;
         margin-bottom: 10px;
     }
-    
+
     .w-txt {
-        margin-top: 20px;
+        margin-top: 24px;
     }
 
     .media-container {
@@ -929,6 +950,7 @@ ERROR 404 CSS
     .img-portrait {
         flex-wrap: wrap;
     }
+
     .img-l, .img-r {
         padding-left: 0;
         padding-right: 0;
@@ -966,7 +988,7 @@ ERROR 404 CSS
     }
 
     .info-txt h2 {
-        font-size: 6rem;
+        font-size: 4rem;
     }
 
     .info-picture {
@@ -977,13 +999,11 @@ ERROR 404 CSS
     .info-picture img {
         height: 50vh;
     }
-    
 }
 
 @media (max-width: 416px) {
-    /* Typographie mobile */
-    .title-item h2 a {
-        font-size: 42px;
-        letter-spacing: -1.5px;
+    .title-item.active h2 a,
+    .title-item.active-slide h2 a {
+       font-size: 35px;
     }
 }
