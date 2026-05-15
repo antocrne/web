@@ -662,92 +662,220 @@ nav a:hover {
 /* ============================
    INFO PAGE
    ============================ */
-.info-container {
-    margin: auto;
-    margin-top: 80px;
+.info-page-wrapper {
+    min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
-    width: 80%;
 }
 
-.info-txt {
-    width: 55%;
-}
-
-.info-picture {
-    width: 45%;
-}
-
-.info-picture img {
+.info-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 56px;
+    align-items: start;
+    max-width: 1200px;
     width: 100%;
-    height: 70vh;
-    object-fit: cover;
-    border-radius: 3px;
-}
-.info-picture span {
-    color: var(--stone);
-    font-weight: 300;
+    margin: 0 auto;
+    padding: 48px 48px 80px;
 }
 
-.info-txt h2 {
+.info-photo img {
+    width: 100%;
+    border-radius: 3px;
+    display: block;
+}
+
+.info-identity {
+    margin-top: 16px;
+}
+
+.info-name {
     font-family: "miller-banner-condensed", sans-serif;
-    font-size: 5.5rem;
+    font-size: 2.2rem;
     font-weight: 300;
     font-style: italic;
     color: var(--charcoal);
-    margin-top: 0;
-    line-height: 2;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+}
+
+.info-heading {
+    font-family: "miller-banner-condensed", sans-serif;
+    font-size: 4rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--charcoal);
     letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.info-role {
+    font-size: 13px;
+    color: var(--stone);
+    margin-bottom: 2px;
+}
+
+.info-location {
+    font-size: 12px;
+    color: var(--sand);
+}
+
+.info-txt {
+    width: 100%;
+    margin-bottom: 24px;
 }
 
 .info-txt p {
-    width: 90%;
-    font-family: 'Jost', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
+    font-size: 15px;
     line-height: 1.85;
     color: var(--stone);
+    margin-bottom: 16px;
 }
 
-.social-info {
-    width: 90%;
-    margin-top: 4%;
+.info-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.info-tag {
+    font-size: 11px;
+    font-weight: 400;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    background: var(--terra-light);
+    color: var(--terracotta);
+    letter-spacing: 0.02em;
+    transition: background 200ms ease, color 200ms ease;
+    cursor: default;
+}
+
+.info-tag:hover {
+    background: var(--terracotta);
+    color: var(--linen);
+}
+
+.info-tag.aegean { background: var(--aegean-light); color: var(--aegean); }
+.info-tag.aegean:hover { background: var(--aegean); color: var(--linen); }
+.info-tag.gold { background: var(--gold-light); color: var(--stone); }
+.info-tag.gold:hover { background: var(--gold); color: var(--linen); }
+.info-tag.olive { background: var(--olive-light); color: var(--olive); }
+
+/* Gear / equipment section */
+.info-gear {
+    margin: 4px 0 24px;
+}
+
+.info-gear-title {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(42, 36, 32, 0.08);
+}
+
+.info-gear-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info-gear-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--charcoal);
+}
+
+.gear-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    flex-shrink: 0;
+}
+
+.gear-category {
+    color: var(--stone);
+    margin-left: auto;
+    font-size: 11px;
+}
+
+.info-social {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(42, 36, 32, 0.10);
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-.social-info a {
-    color: var(--stone);
-    text-decoration: none;
-    font-family: 'Jost', sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    letter-spacing: 0.1em;
-    transition: color 0.3s;
-}
-
-.social-info a:hover {
-    color: var(--aegean-mid);
+.socials {
+    display: flex;
+    gap: 16px;
 }
 
 .socials a {
-    margin-left: 10px;
     color: var(--stone);
     text-decoration: none;
-    font-family: 'Jost', sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    letter-spacing: 0.1em;
-    transition: color 0.3s;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    position: relative;
+    display: inline-block;
+    transition: color 200ms ease;
+}
+
+.socials a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--terracotta);
+    transition: width 200ms ease;
+}
+
+.socials a:hover::after {
+    width: 100%;
 }
 
 .socials a:hover {
-    color: var(--aegean-mid);
+    color: var(--terracotta);
+}
+
+#email {
+    color: var(--stone);
+    font-size: 13px;
+    position: relative;
+    display: inline-block;
+    transition: color 200ms ease;
+    text-decoration: none;
+}
+
+#email::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--terracotta);
+    transition: width 200ms ease;
+}
+
+#email:hover::after {
+    width: 100%;
 }
 
 #email:hover {
-    color: var(--aegean-mid);
-    transition: 0.3s;
+    color: var(--terracotta);
 }
 
 
@@ -960,44 +1088,49 @@ nav a:hover {
         display: none;
     }
 
+    .info-page-wrapper {
+        min-height: unset;
+        align-items: flex-start;
+    }
+
     .info-container {
-        flex-direction: column;
-        margin: 30px;
-        padding-bottom: 30px;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 30px 24px 60px;
     }
 
-    .info-txt {
-        width: 100%;
+    .info-left {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
     }
 
-    .info-txt p {
-        width: 100%;
+    .info-name {
+        font-size: 1.5rem;
     }
 
-    .social-info {
+
+
+    .info-photo {
+        width: 140px;
+        flex-shrink: 0;
+    }
+
+    .info-identity {
+        margin-top: 0;
+    }
+
+    .info-heading {
+        display: none;
+    }
+
+    .info-social {
         flex-wrap: wrap;
+        gap: 12px;
     }
 
     .socials {
-        margin-top: 10px;
-    }
-
-    .socials a {
-        margin-left: 0;
-        margin-right: 10px;
-    }
-
-    .info-txt h2 {
-        font-size: 4rem;
-    }
-
-    .info-picture {
-        width: 100%;
-        margin-top: 5%;
-    }
-
-    .info-picture img {
-        height: 50vh;
+        margin-top: 0;
     }
 }
 
