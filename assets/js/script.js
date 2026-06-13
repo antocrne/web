@@ -434,6 +434,114 @@ if (videoContainer) {
 }
 
 // ======================================================
+// PLAYER VIMEO AVEC PREVIEW
+// ======================================================
+
+// Vérifier si on est sur une page avec vidéo Vimeo
+const vimeoContainer = document.getElementById('vimeo-player');
+
+if (vimeoContainer) {
+    const vimeoPreview = document.querySelector(".video-preview");
+    const vimeoId = vimeoContainer.getAttribute('data-video-id');
+    let vimeoPlayer = null;
+    let isVimeoPlayerReady = false;
+
+    // Initialiser le player Vimeo une fois que le SDK est chargé
+    function initVimeoPlayer() {
+        if (!vimeoId || typeof Vimeo === 'undefined') {
+            console.error('Vimeo SDK not loaded or no video ID found');
+            return;
+        }
+
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://player.vimeo.com/video/${vimeoId}?autoplay=0&muted=0&controls=1&title=0&byline=0&portrait=0&dnt=1`;
+        iframe.width = '100%';
+        iframe.height = '100%';
+        iframe.frameBorder = '0';
+        iframe.allow = 'autoplay; fullscreen';
+        iframe.allowFullscreen = true;
+
+        // Remplacer le div par l'iframe
+        vimeoContainer.innerHTML = '';
+        vimeoContainer.appendChild(iframe);
+
+        // Initialiser le player
+        vimeoPlayer = new Vimeo.Player(iframe);
+
+        vimeoPlayer.ready().then(() => {
+            isVimeoPlayerReady = true;
+            console.log('Vimeo player ready');
+
+            // Gestion du clic sur la preview
+            if (vimeoPreview) {
+                vimeoPreview.addEventListener('click', () => {
+                    if (!isVimeoPlayerReady) {
+                        console.log('Vimeo player not ready yet...');
+                        return;
+                    }
+
+                    // Cache la preview avec fondu
+                    vimeoPreview.classList.add('hidden');
+
+                    // Retire complètement après l'animation
+                    setTimeout(() => {
+                        vimeoPreview.style.display = 'none';
+                    }, 1500);
+
+                    // Lance la vidéo
+                    vimeoPlayer.play();
+                });
+            }
+
+            // Gestion du shield pour pause
+            const shield = document.querySelector('.video-shield');
+            if (shield) {
+                shield.addEventListener('click', () => {
+                    if (isVimeoPlayerReady) {
+                        vimeoPlayer.pause();
+                    }
+                });
+            }
+        }).catch(error => {
+            console.error('Error initializing Vimeo player:', error);
+        });
+
+        // Gestion des états du player
+        vimeoPlayer.on('play', () => {
+            if (vimeoPreview) {
+                vimeoPreview.classList.add('hidden');
+                setTimeout(() => {
+                    vimeoPreview.style.display = 'none';
+                }, 1500);
+            }
+            const shield = document.querySelector('.video-shield');
+            if (shield) {
+                shield.classList.add('active-yt');
+            }
+        });
+
+        vimeoPlayer.on('pause', () => {
+            const shield = document.querySelector('.video-shield');
+            if (shield) {
+                shield.classList.remove('active-yt');
+            }
+        });
+    }
+
+    // Charger le SDK Vimeo s'il n'est pas déjà chargé
+    if (typeof Vimeo === 'undefined') {
+        const script = document.createElement('script');
+        script.src = 'https://player.vimeo.com/api/player.js';
+        script.onload = initVimeoPlayer;
+        script.onerror = () => console.error('Failed to load Vimeo SDK');
+        document.head.appendChild(script);
+    } else {
+        // SDK déjà chargé, initialiser directement
+        initVimeoPlayer();
+    }
+}
+
+// ======================================================
 // 3. SYSTÈME DE TRADUCTION (i18n)
 // ======================================================
 
@@ -460,6 +568,8 @@ const translations = {
         gear_video: "Vidéo / polyvalent",
         gear_lens: "Objectif signature",
         description_nantais: `Imaginez votre pause déjeuner avec vue, entouré de tables de pique-nique au bord d'un lac, un after-work animé par des jeux en plein air et un marché mettant en valeur des créateurs locaux sur fond de musique live… Bienvenue aux « Nantais » ! <a href="https://www.stevenrsl.eu" target="_blank" class="ext-link">Steven Roussel</a> et moi assurons la couverture photo et vidéo de cette guinguette. Notre mission : partager la programmation et mettre en avant l'ambiance conviviale et détendue des événements sur les réseaux sociaux…`,
+        project_externatic: "Externatic — La nuit des communautés",
+        description_externatic: `Pour l'événement "La nuit des communautés" d'Externatic, à travers la photographie et la vidéo j'ai capturé l'énergie et l'authenticité des interactions pour immortaliser cette célébration de construction communautaire.`,
         error: `Cette page n'existe pas.`,
         error_back: `Retournez à l'accueil.`
     },
@@ -486,7 +596,9 @@ const translations = {
         gear_lens: "Signature lens",
         description_nantais: `Imagine your lunch break with a view, surrounded by picnic tables around a lake, an afterwork gathering with outdoor games and a market featuring local creators with live music… Welcome to “Les Nantais” ! <a href="https://www.stevenrsl.eu" target="_blank" class="ext-link">Steven Roussel</a> and I provide and create photos and videos around the guinguette. Share the planning, showcase the fun and relaxed atmosphere of events on social media…`,
         error: `This page does not exist.`,
-        error_back: `Return to home page`
+        error_back: `Return to home page`,
+        project_externatic: "Externatic — La nuit des communautés",
+        description_externatic: `For Externatic's "La nuit des communautés" event, I captured the energy and authenticity of the interactions through photography and video to immortalize this community-building celebration.`
     }
 };
 
