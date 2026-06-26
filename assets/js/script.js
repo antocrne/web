@@ -362,75 +362,67 @@ if (isMobileDevice && videoPreview) {
 
 
 // ═══════════════════════════════════════════════════════
-// PLAYER YOUTUBE SIMPLE AVEC PREVIEW
+// PLAYER YOUTUBE — SUPPORT MULTI-PLAYERS
 // ═══════════════════════════════════════════════════════
 
-// Vérifier si on est sur une page avec vidéo
-const videoContainer = document.getElementById('youtube-player');
+const videoElements = document.querySelectorAll('.youtube-player');
 
-if (videoContainer) {
-    // Charger l'API YouTube
+if (videoElements.length > 0) {
+
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    let player;
-    let isPlayerReady = false;
+    const videosData = [];
 
-    const videoPreview = document.querySelector(".video-preview");
-    const videoId = videoContainer.getAttribute('data-video-id');
+    videoElements.forEach((el, i) => {
+        const videoId = el.getAttribute('data-video-id');
+        if (!videoId) return;
 
-    // Initialiser le player YouTube
-    window.onYouTubeIframeAPIReady = function() {
-        if (!videoId) {
-            console.error('Aucun ID vidéo trouvé !');
-            return;
-        }
-        
-        player = new YT.Player('youtube-player', {
-            height: '100%',
-            width: '100%',
-            videoId: videoId,
-            playerVars: {
-                'controls': 1,          // Contrôles YouTube natifs
-                'modestbranding': 1,    // Réduit le branding YouTube
-                'rel': 0,               // Pas de vidéos suggérées
-                'showinfo': 0,          // Cache les infos
-                'playsinline': 1,       // Lecture inline sur mobile
-                'fs': 1                 // Fullscreen activé
-            },
-            events: {
-                'onReady': onPlayerReady
+        if (!el.id) el.id = 'youtube-player-' + i;
+
+        const preview = el.closest('.player')?.querySelector('.video-preview');
+
+        videosData.push({ el, videoId, preview, player: null, ready: false });
+    });
+
+    window.onYouTubeIframeAPIReady = function () {
+        videosData.forEach((data, i) => {
+            data.player = new YT.Player(data.el.id, {
+                height: '100%',
+                width: '100%',
+                videoId: data.videoId,
+                playerVars: {
+                    'controls': 1,
+                    'modestbranding': 1,
+                    'rel': 0,
+                    'showinfo': 0,
+                    'playsinline': 1,
+                    'fs': 1
+                },
+                events: {
+                    'onReady': () => {
+                        data.ready = true;
+                        console.log('Player', i, 'prêt — vidéo:', data.videoId);
+                    }
+                }
+            });
+
+            if (data.preview) {
+                data.preview.addEventListener('click', () => {
+                    if (!data.ready) return;
+
+                    data.preview.classList.add('hidden');
+                    setTimeout(() => {
+                        data.preview.style.display = 'none';
+                    }, 1500);
+
+                    data.player.playVideo();
+                });
             }
         });
-    }
-
-    function onPlayerReady() {
-        isPlayerReady = true;
-        console.log('Player YouTube prêt avec la vidéo:', videoId);
-    }
-
-    // Gestion du clic sur la preview
-    if (videoPreview) {
-        videoPreview.addEventListener('click', () => {
-            if (!isPlayerReady) {
-                console.log('Player pas encore prêt...');
-                return;
-            }
-            
-            // Cache la preview avec fondu
-            videoPreview.classList.add('hidden');
-            
-            // Retire complètement après l'animation
-            setTimeout(() => {
-                videoPreview.style.display = 'none';
-            }, 1500);
-            
-            // Lance la vidéo
-            player.playVideo();
-        });
-    }
+    };
 }
 
 // ======================================================

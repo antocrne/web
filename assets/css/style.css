@@ -333,6 +333,10 @@ nav a:hover {
     border-radius: 3px;
 }
 
+#second-video {
+    margin-top: 15px;
+}
+
 .text-container {
     width: 100%;
     margin: 0px;
